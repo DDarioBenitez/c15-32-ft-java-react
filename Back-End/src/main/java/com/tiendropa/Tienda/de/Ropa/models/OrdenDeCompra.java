@@ -26,6 +26,7 @@ public class OrdenDeCompra {
 
     @Getter@Setter
     @ManyToOne
+    @JoinColumn(name = "user_id") // Esta columna hace referencia a la entidad User
     private User user;
 
     @Getter
