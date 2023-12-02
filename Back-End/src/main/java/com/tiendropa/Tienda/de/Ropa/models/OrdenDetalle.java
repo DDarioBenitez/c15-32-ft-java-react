@@ -1,8 +1,6 @@
 package com.tiendropa.Tienda.de.Ropa.models;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,23 +15,22 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "comentarios")
+@Table(name = "ordenes_detalles")
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-public class Comentario {
+public class OrdenDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String body;
+    private int cantidad;
 
-    @CreationTimestamp
-    private LocalDateTime fecha;
+    private BigDecimal precioTotal;
+
+    @ManyToOne
+    private Orden orden;
 
     @ManyToOne
     private Producto producto;
-
-    @ManyToOne
-    private User user;
 }
