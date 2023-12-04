@@ -1,3 +1,29 @@
 /* 
     General Styles
 */
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Roboto:wght@100;300;400&display=swap');
+  
+  :root{
+    --bs-sand: rgba(229, 197, 163, 0.95)
+  }
+  .body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+  .logo{
+    /* font-family: 'Libre Baskerville', serif; */
+    font-family: auto;
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgb(231, 156, 103);
+    margin-left: 2%;
+}
+   .nav-despacho{
+    background-color: var(--bs-sand);
+    place-items: center;
+    display: grid;
+    font-weight: lighter;
+    margin-top: 0;
+}
