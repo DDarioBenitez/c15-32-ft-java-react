@@ -6,7 +6,10 @@
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Roboto:wght@100;300;400&display=swap');
   
   :root{
-    --bs-sand: rgba(229, 197, 163, 0.95)
+    --bs-sand: rgba(235, 207, 166, 0.932);
+    --logo: rgb(217 179 130);
+
+
   }
   .body{
     font-family: 'Roboto', sans-serif;
@@ -17,8 +20,11 @@
     font-family: auto;
     font-weight: bolder;
     text-decoration: none;
-    color: rgb(231, 156, 103);
-    margin-left: 2%;
+    color:  rgb(217 179 130);
+    margin-left: 4%;
+}
+.nav-iconos{
+    margin-right: 1;
 }
    .nav-despacho{
     background-color: var(--bs-sand);
@@ -26,4 +32,15 @@
     display: grid;
     font-weight: lighter;
     margin-top: 0;
+    padding: 0.7%;
+
+}
+.nav-categorias {
+    justify-content: space-evenly;
+    align-content: center;
+    display: flex;
+    font-weight: lighter;
+    margin-top: 0; 
+    border: solid 0.5px rgba(177, 176, 176, 0.603);
+    padding: 0.7%;
 }
