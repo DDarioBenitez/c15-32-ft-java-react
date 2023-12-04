@@ -20,8 +20,8 @@ export const Navbar = () => {
 						<h3 className="logo">OPAL</h3>
 					</Link>
 					<div className="d-flex justify-content-between align-items-center">
-						<form class="d-flex justify-content-between " role="search">
-							<input class="form-control nav-search-form" type="search" placeholder="BUSCA TU PRODUCTO" aria-label="Search" />
+						<form className="d-flex justify-content-between " role="search">
+							<input className="form-control nav-search-form" type="search" placeholder="BUSCA TU PRODUCTO" aria-label="Search" />
 							<FaSearch className="m-4" />
 						</form>
 						<div>
