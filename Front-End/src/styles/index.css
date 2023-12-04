@@ -23,8 +23,25 @@
     color:  rgb(217 179 130);
     margin-left: 4%;
 }
+.logo-wrap{
+    color:  rgb(217 179 130);
+}
+.logo::after{
+    content: "estilo moderno, espiritu urbano";
+    text-transform: uppercase;
+    display: block;
+    font-size: 13%;
+    margin-left: 4%;
+
+}
 .nav-iconos{
     margin-right: 1;
+}
+.nav-search-form{
+    font-size: small !important;
+    font-weight: lighter !important;
+    background-color: #fff0 !important;
+    border: 1px solid transparent !important;
 }
    .nav-despacho{
     background-color: var(--bs-sand);

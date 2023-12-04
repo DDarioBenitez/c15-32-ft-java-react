@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { CiDeliveryTruck, CiUser, CiShoppingBasket } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
+import Logo from "./logo.jsx";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light shadow ">
+		<nav className="navbar navbar-light bg-light shadow py-0">
 			<div className=" col">
 				<div className="nav-despacho d-flex justify-content-center">
 				<CiDeliveryTruck />
@@ -19,8 +20,8 @@ export const Navbar = () => {
 						<h3 className="logo">OPAL</h3>
 					</Link>
 					<div className="d-flex justify-content-between align-items-center">
-						<form class="d-flex justify-content-between" role="search">
-							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+						<form class="d-flex justify-content-between " role="search">
+							<input class="form-control nav-search-form" type="search" placeholder="BUSCA TU PRODUCTO" aria-label="Search" />
 							<FaSearch className="m-4" />
 						</form>
 						<div>
