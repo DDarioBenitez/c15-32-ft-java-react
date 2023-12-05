@@ -26,7 +26,7 @@ public class Orden {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private BigDecimal precioTotal;
 

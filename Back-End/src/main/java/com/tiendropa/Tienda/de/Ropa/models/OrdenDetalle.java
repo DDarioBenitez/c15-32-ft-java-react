@@ -22,7 +22,7 @@ public class OrdenDetalle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private int cantidad;
 
