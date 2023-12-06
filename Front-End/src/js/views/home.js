@@ -7,7 +7,7 @@ import SlideCards from "../component/SlideCards.jsx";
 import Sale from "../component/Sale.jsx";
 
 export const Home = () => (
-	<div className="text-center mt-5">
+	<div className="text-center">
 		<SlidePrincipal/>
 		<SlideCards/>
 		<Colecciones/>

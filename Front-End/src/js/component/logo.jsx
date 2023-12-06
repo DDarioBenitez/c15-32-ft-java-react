@@ -5,7 +5,7 @@ const Logo = () => {
         <>
             <span className="logo-wrap">
                 <h3 className="logo">OPAL</h3>
-                {/* <span className="text-uppercase">estilo moderno, espiritu urbano</span> */}
+                {/* estilo moderno, espiritu urbano EL SLOGAN ESTA COMO ::AFTER EN CSS*/}
             </span>
 
         </>
