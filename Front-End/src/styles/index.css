@@ -86,3 +86,14 @@ height: 450px;
 .carousel-item .cards .cards-slide{
     height: 550px !important;
 }
+.colection{
+    background-color: var(--bs-sand);
+}
+.colection img{
+    height: 400px;
+    object-fit: cover;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 0.2rem;
+    font-size: xx-small;}

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Registro = () => {
     return (
-        <div class="card text-center">
+        <div class="card text-center my-5">
             <div class="card-header">
                 
             </div>

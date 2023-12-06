@@ -4,14 +4,14 @@ const SlideCards = () => {
   return (
 // cada cara del slide seria un componente con una cantidad x de cards para web serian 4 cards ver material ui https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
     <>
-      <div id="carouselExample" class="carousel m-2 cards-slide">
+      <div id="carouselExample" class="carousel mx-2 my-5 cards-slide">
         <div class="carousel-inner  ">
 
           <div class="carousel-item active cards">
             <div className='d-flex cards'>
 
               <div className='d-flex  col mx-1'>
-                <img src="https://images.pexels.com/photos/2860991/pexels-photo-2860991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="cards d-block w-100" alt="..." />
+                <img src="https://images.pexels.com/photos/833169/pexels-photo-833169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="cards d-block w-100" alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <p>Some representative placeholder content for the first slide.</p>
                 </div>
@@ -21,6 +21,9 @@ const SlideCards = () => {
               </div>
               <div className=' col mx-1'>
                 <img src="https://images.pexels.com/photos/2916814/pexels-photo-2916814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="..." />
+              </div>
+              <div className=' col mx-1'>
+                <img src="https://images.pexels.com/photos/3769148/pexels-photo-3769148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="..." />
               </div>
 
             </div>
