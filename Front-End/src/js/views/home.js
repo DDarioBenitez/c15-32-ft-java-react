@@ -5,6 +5,7 @@ import SlidePrincipal from "../component/SlidePrincipal.jsx";
 import Colecciones from "../component/Colecciones.jsx";
 import SlideCards from "../component/SlideCards.jsx";
 import Sale from "../component/Sale.jsx";
+import Registro from "../component/registro.jsx";
 
 export const Home = () => (
 	<div className="text-center">
@@ -12,5 +13,6 @@ export const Home = () => (
 		<SlideCards/>
 		<Colecciones/>
 		<Sale/>
+		<Registro/>
 	</div>
 );
