@@ -1,31 +1,35 @@
 import React from 'react'
-import { CiDeliveryTruck, CiUser, CiShoppingBasket } from "react-icons/ci";
+import { CiDeliveryTruck, CiUser, CiShoppingBasket, CiTrash, CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 
-const offCanvaCarrito = () => {
+const OffCanvaCarrito = () => {
     return (
         <>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                <CiDeliveryTruck />
+            <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                <CiShoppingBasket />
             </button>
 
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Articulos en el carrito</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div className="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="offcanvasTopLabel">Articulos en el carrito</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="offcanvas-body">
+                <div className="offcanvas-body">
 
                     {/* horizontalCard solo para items en carro de compras*/}
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="..." />
+                    <div className="card mb-3" style={{maxWidth: '540px'}}>
+                        <div className="row g-0">
+                            <div className="col-md-4">
+                                <img src="https://images.pexels.com/photos/833169/pexels-photo-833169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid rounded-start" alt="..." />
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            <div className="col-md-8">
+                                <div className="card-body">
+                                    <h5 className="card-title">titulo producto</h5>
+                                    <p className="card-text">talla color precio</p>
+                                    <p> cantidad 
+                                        <CiSquarePlus/> 
+                                        <CiSquareMinus/>
+                                    </p>
+                                    <p className="card-text"><small className="text-body-secondary"><CiTrash /> eliminar</small></p>
                                 </div>
                             </div>
                         </div>
@@ -38,4 +42,4 @@ const offCanvaCarrito = () => {
     )
 }
 
-export default offCanvaCarrito
+export default OffCanvaCarrito

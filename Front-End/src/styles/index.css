@@ -23,11 +23,12 @@
     color:  rgb(217 179 130);
     margin-left: 4%;
     position: relative;
+    top: auto;
 }
 .logo-wrap{
     color:  rgb(217 179 130);
 }
-.logo::after{
+/* .logo::after{
     content: "estilo moderno, espiritu urbano";
     text-transform: uppercase;
     display: block;
@@ -38,7 +39,7 @@
     position: absolute;    
     top: 1;
 
-}
+} */
 .nav-iconos{
     margin-right: 1;
 }
@@ -116,3 +117,30 @@ height: 450px;
     flex: 1 1 auto;
     padding: 0.2rem;
     font-size: xx-small;}
+.dropdown-toggle::after{
+    display: none !important;
+}
+.dropdown-item{
+    font-weight: lighter;
+    font-size: smaller;
+}
+.deliveryview{
+    height: 60vh;
+    place-content: center;
+    place-items: center;
+}
+.seguimientoPedidoIcono{
+    font-size: 5rem;
+    color: tan;
+}
+.linkStyle{
+    text-decoration: dashed;
+}
+.perfilWrapper{
+    display: grid;
+    height: 60vh;
+    justify-content: start;
+    padding: 4rem;
+    /* position: relative;
+    top: 2rem; */
+}
