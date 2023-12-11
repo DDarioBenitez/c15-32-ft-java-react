@@ -27,7 +27,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String nombre;
 
@@ -46,9 +46,15 @@ public class Producto {
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
 
+    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+    private List<OrdenDetalle> detalles = new ArrayList<>();
 
     public void addCometario(Comentario comentario) {
         comentario.setProducto(this);
         this.comentarios.add(comentario);
+    }
+    public void addDetalle(OrdenDetalle detalle) {
+        detalle.setProducto(this);
+        this.detalles.add(detalle);
     }
 }

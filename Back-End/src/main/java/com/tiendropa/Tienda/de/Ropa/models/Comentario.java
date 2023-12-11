@@ -24,7 +24,7 @@ public class Comentario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String body;
 
@@ -35,5 +35,5 @@ public class Comentario {
     private Producto producto;
 
     @ManyToOne
-    private User user;
+    private Usuario usuario;
 }

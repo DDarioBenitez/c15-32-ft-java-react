@@ -22,11 +22,11 @@ import lombok.Setter;
 @Table(name = "users")
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String email;
 
@@ -34,20 +34,26 @@ public class User {
 
     private Rol rol;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Orden> orden = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
 
-    
+    public Usuario(String email, String password, Rol rol) {
+        this.email = email;
+        this.password = password;
+        this.rol = rol;
+    }
+
+
     public void addComentario(Comentario comentario) {
-        comentario.setUser(this);
+        comentario.setUsuario(this);
         this.comentarios.add(comentario);
     }
 
     public void addOrden(Orden orden) {
-        orden.setUser(this);
+        orden.setUsuario(this);
         this.orden.add(orden);
     }
 }
