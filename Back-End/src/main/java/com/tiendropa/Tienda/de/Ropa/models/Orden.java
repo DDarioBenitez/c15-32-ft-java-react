@@ -33,7 +33,7 @@ public class Orden {
     private String metodoDePago;
 
     @ManyToOne
-    private User user;
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "orden", fetch = FetchType.EAGER)
     private List<OrdenDetalle> detalles = new ArrayList<>();

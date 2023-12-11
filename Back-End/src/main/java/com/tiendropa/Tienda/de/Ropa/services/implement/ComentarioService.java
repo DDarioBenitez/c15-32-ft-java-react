@@ -1,5 +1,6 @@
-package com.tiendropa.Tienda.de.Ropa.services;
+package com.tiendropa.Tienda.de.Ropa.services.implement;
 
+import com.tiendropa.Tienda.de.Ropa.services.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

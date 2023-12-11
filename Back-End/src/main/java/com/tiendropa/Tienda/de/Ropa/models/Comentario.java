@@ -35,5 +35,5 @@ public class Comentario {
     private Producto producto;
 
     @ManyToOne
-    private User user;
+    private Usuario usuario;
 }

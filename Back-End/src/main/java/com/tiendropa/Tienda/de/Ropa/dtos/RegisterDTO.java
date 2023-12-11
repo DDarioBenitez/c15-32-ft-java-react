@@ -8,5 +8,4 @@ import lombok.NoArgsConstructor;
 public class RegisterDTO {
     private String email;
     private String password;
-    private String rol;
 }

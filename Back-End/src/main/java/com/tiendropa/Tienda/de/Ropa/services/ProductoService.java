@@ -1,38 +1,16 @@
 package com.tiendropa.Tienda.de.Ropa.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.tiendropa.Tienda.de.Ropa.models.Producto;
-import com.tiendropa.Tienda.de.Ropa.repositories.ProductoRepository;
 
-import jakarta.persistence.EntityNotFoundException;
+import java.util.List;
 
+public interface ProductoService {
 
-@Service
-public class ProductoService implements CrudService<Producto>
-{
-    @Autowired
-    private ProductoRepository productoRepository;
+    void save(Producto producto);
 
+    List<Producto> findAll();
 
-    @Override
-    public Iterable<Producto> findAll() {
-        return productoRepository.findAll();
-    }
+    Producto findById(Long id);
 
-    @Override
-    public Producto findById(Long id) {
-        return productoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("El producto #%d no pudo ser encontrado", id)));
-    }
-
-    @Override
-    public void save(Producto entity) {
-        productoRepository.save(entity);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        productoRepository.deleteById(id);
-    }
+    void deleteById(Long id);
 }
