@@ -43,9 +43,9 @@ const SlidePrincipal = () => {
           </div>
           <div className="carousel-item">
             
-            <div className="test">
-              <h5 className='mt-5 text-light'>OFERTAS</h5>
-              <div>SHOP</div>
+            <div className="sale ">
+              {/* <h5 className='mt-5 text-light'>OFERTAS</h5> */}
+              <div className='btn btn-light'>SHOP</div>
             </div>
             
             <img src="https://images.pexels.com/photos/3806753/pexels-photo-3806753.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="d-block w-100" alt="" />
