@@ -21,7 +21,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "productos")
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class Producto {
 
@@ -33,7 +33,7 @@ public class Producto {
 
     private String descripcion;
 
-    private BigDecimal precio;
+    private double precio;
 
     private String marca;
 
@@ -43,11 +43,33 @@ public class Producto {
 
     private String color;
 
+    private double descuento;
+
+    private String imagen;
+
+    private int cantidad;
+
+    private boolean isActivo;
+
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<OrdenDetalle> detalles = new ArrayList<>();
+
+    public Producto(String nombre, String descripcion, double precio, String marca, Categoria categoria, String talle, String color, double descuento, String imagen, int cantidad) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.talle = talle;
+        this.color = color;
+        this.descuento = descuento;
+        this.imagen = imagen;
+        this.cantidad = cantidad;
+        this.isActivo = true;
+    }
 
     public void addCometario(Comentario comentario) {
         comentario.setProducto(this);
