@@ -26,14 +26,14 @@ public class Orden {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private BigDecimal precioTotal;
 
     private String metodoDePago;
 
     @ManyToOne
-    private User user;
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "orden", fetch = FetchType.EAGER)
     private List<OrdenDetalle> detalles = new ArrayList<>();

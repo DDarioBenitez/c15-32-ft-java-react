@@ -1,10 +1,9 @@
 package com.tiendropa.Tienda.de.Ropa.models;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tiendropa.Tienda.de.Ropa.enums.Categoria;
+import com.tiendropa.Tienda.de.Ropa.enums.Rol;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,41 +19,41 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "productos")
+@Table(name = "users")
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
-public class Producto {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String nombre;
+    private String email;
 
-    private String descripcion;
+    private String password;
 
-    private BigDecimal precio;
+    private Rol rol;
 
-    private String marca;
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    private List<Orden> orden = new ArrayList<>();
 
-    private Categoria categoria;
-
-    private String talle;
-
-    private String color;
-
-    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
 
-    @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
-    private List<OrdenDetalle> detalles = new ArrayList<>();
+    public Usuario(String email, String password, Rol rol) {
+        this.email = email;
+        this.password = password;
+        this.rol = rol;
+    }
 
-    public void addCometario(Comentario comentario) {
-        comentario.setProducto(this);
+
+    public void addComentario(Comentario comentario) {
+        comentario.setUsuario(this);
         this.comentarios.add(comentario);
     }
-    public void addDetalle(OrdenDetalle detalle) {
-        detalle.setProducto(this);
-        this.detalles.add(detalle);
+
+    public void addOrden(Orden orden) {
+        orden.setUsuario(this);
+        this.orden.add(orden);
     }
 }
