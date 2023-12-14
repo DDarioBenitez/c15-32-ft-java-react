@@ -14,11 +14,15 @@ public class ProductoDTO {
     private long id;
     private String nombre;
     private String descripcion;
-    private BigDecimal precio;
+    private double precio;
     private String marca;
     private Categoria categoria;
-    private String talle;
-    private String color;
+    private List<String> talle;
+    private List<String> color;
+    private double descuento;
+    private List<String> imagen;
+    private int cantidad;
+    private boolean isActivo;
 
     public ProductoDTO(Producto producto) {
         this.id = producto.getId();
@@ -29,5 +33,21 @@ public class ProductoDTO {
         this.categoria = producto.getCategoria();
         this.talle = producto.getTalle();
         this.color = producto.getColor();
+        this.descuento = producto.getDescuento();
+        this.imagen = producto.getImagen();
+        this.cantidad = producto.getCantidad();
+        this.isActivo = producto.isActivo();
+    }
+    public ProductoDTO(String nombre,String descripcion, double precio, String marca, Categoria categoria, List<String> talle, List<String> color, double descuento, List<String> imagen, int cantidad) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.marca = marca;
+        this.categoria = categoria;
+        this.talle = talle;
+        this.color = color;
+        this.descuento = descuento;
+        this.imagen = imagen;
+        this.cantidad = cantidad;
     }
 }

@@ -7,5 +7,5 @@ import com.tiendropa.Tienda.de.Ropa.models.Producto;
 
 
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
-
+    boolean existsById(long id);
 }

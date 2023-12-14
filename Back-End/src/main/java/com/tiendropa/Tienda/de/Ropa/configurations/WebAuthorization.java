@@ -15,8 +15,8 @@ import org.springframework.security.web.authentication.logout.HttpStatusReturnin
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class WebAuthorization {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

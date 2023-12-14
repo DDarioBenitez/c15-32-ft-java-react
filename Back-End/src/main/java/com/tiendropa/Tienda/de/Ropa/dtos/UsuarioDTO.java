@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor@AllArgsConstructor@Getter
-public class UserDTO {
+public class UsuarioDTO {
     private long id;
     private String email;
     private String password;
@@ -17,7 +17,7 @@ public class UserDTO {
     private List<OrdenDTO> orden = new ArrayList<>();
     private List<ComentarioDTO> comentarios = new ArrayList<>();
 
-    public UserDTO(Usuario usuario){
+    public UsuarioDTO(Usuario usuario){
         this.id = usuario.getId();
         this.email = usuario.getEmail();
         this.password = usuario.getPassword();
@@ -25,7 +25,7 @@ public class UserDTO {
         this.orden = usuario.getOrden().stream().map(OrdenDTO::new).toList();
         this.comentarios = usuario.getComentarios().stream().map(ComentarioDTO::new).toList();
     }
-     public UserDTO(long id, String email, String password, String rol){
+     public UsuarioDTO(long id, String email, String password, String rol){
         this.id=id;
         this.email=email;
         this.password=password;
