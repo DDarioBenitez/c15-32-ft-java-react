@@ -6,13 +6,7 @@ import java.util.List;
 
 import com.tiendropa.Tienda.de.Ropa.enums.Categoria;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,33 +16,36 @@ import lombok.Setter;
 @Entity
 @Table(name = "productos")
 @NoArgsConstructor
-@Getter @Setter
+@Getter
 public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    @Setter
     private String nombre;
-
+    @Setter
     private String descripcion;
-
+    @Setter
     private double precio;
-
+    @Setter
     private String marca;
-
+    @Setter
     private Categoria categoria;
-
-    private String talle;
-
-    private String color;
-
+    @Setter
+    @ElementCollection
+    private List<String> talle= new ArrayList<>();
+    @Setter
+    @ElementCollection
+    private List<String> color= new ArrayList<>();
+    @Setter
     private double descuento;
-
-    private String imagen;
-
+    @Setter
+    @ElementCollection
+    private List<String> imagen= new ArrayList<>();
+    @Setter
     private int cantidad;
-
+    @Setter
     private boolean isActivo;
 
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
@@ -57,7 +54,7 @@ public class Producto {
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<OrdenDetalle> detalles = new ArrayList<>();
 
-    public Producto(String nombre, String descripcion, double precio, String marca, Categoria categoria, String talle, String color, double descuento, String imagen, int cantidad) {
+    public Producto(String nombre, String descripcion, double precio, String marca, Categoria categoria, List<String> talle, List<String> color, double descuento, List<String> imagen, int cantidad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -71,7 +68,7 @@ public class Producto {
         this.isActivo = true;
     }
 
-    public void addCometario(Comentario comentario) {
+    public void addComentario(Comentario comentario) {
         comentario.setProducto(this);
         this.comentarios.add(comentario);
     }

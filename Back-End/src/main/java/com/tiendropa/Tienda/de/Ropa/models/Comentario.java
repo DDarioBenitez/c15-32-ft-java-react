@@ -19,21 +19,26 @@ import lombok.Setter;
 @Entity
 @Table(name = "comentarios")
 @NoArgsConstructor @AllArgsConstructor
-@Getter @Setter
+@Getter
 public class Comentario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    @Setter
     private String body;
-
-    @CreationTimestamp
+    @Setter
     private LocalDateTime fecha;
-
+    @Setter
     @ManyToOne
     private Producto producto;
-
+    @Setter
     @ManyToOne
     private Usuario usuario;
+
+
+    public Comentario(String body, LocalDateTime fecha) {
+        this.body = body;
+        this.fecha = fecha;
+    }
 }

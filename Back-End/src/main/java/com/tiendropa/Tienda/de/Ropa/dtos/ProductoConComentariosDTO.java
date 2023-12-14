@@ -17,10 +17,10 @@ public class ProductoConComentariosDTO {
     private double precio;
     private String marca;
     private Categoria categoria;
-    private String talle;
-    private String color;
+    private List<String> talle;
+    private List<String> color;
     private double descuento;
-    private String imagen;
+    private List<String> imagen;
     private int cantidad;
     private boolean isActivo;
     private List<ComentarioDTO> comentarios;

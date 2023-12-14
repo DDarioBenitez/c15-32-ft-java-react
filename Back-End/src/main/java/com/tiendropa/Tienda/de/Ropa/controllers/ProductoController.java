@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.convert.ReadingConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,6 +36,7 @@ public class ProductoController {
     }
 
     @PostMapping("/add")
+    @Transactional
     public ResponseEntity<Object> addProducto(@RequestBody ProductoDTO producto) {
         if (producto.getNombre().isEmpty()) {
             return new ResponseEntity<>("El nombre es incorrecto", HttpStatus.BAD_REQUEST);
@@ -69,6 +71,7 @@ public class ProductoController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @Transactional
     public ResponseEntity<Object> deleteProducto(@PathVariable long id) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
@@ -82,6 +85,7 @@ public class ProductoController {
     }
 
     @PatchMapping("/update/stock/{id}")
+    @Transactional
     public ResponseEntity<Object> updateStock(@PathVariable long id, @RequestParam int cantidad) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
@@ -98,6 +102,7 @@ public class ProductoController {
     }
 
     @PatchMapping("/update/descuento/{id}")
+    @Transactional
     public ResponseEntity<Object> updateDescuento(@PathVariable long id, @RequestParam double descuento) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
@@ -113,7 +118,8 @@ public class ProductoController {
         return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
     }
 
-    @PatchMapping("/update/image/{id}")
+    @PatchMapping("/update/imagen/{id}")
+    @Transactional
     public ResponseEntity<Object> updateImage(@PathVariable long id, @RequestParam String imagen) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
@@ -123,13 +129,14 @@ public class ProductoController {
         }
         if(productoService.existsById(id)) {
             Producto producto = productoService.findById(id);
-            producto.setImagen(imagen);
+            producto.getImagen().add(imagen);
             return new ResponseEntity<>("Imagen Actualizada con Exito", HttpStatus.OK);
         }
         return new ResponseEntity<>("Producto no encontrado", HttpStatus.NOT_FOUND);
     }
 
     @PatchMapping("/update/precio/{id}")
+    @Transactional
     public ResponseEntity<Object> updatePrecio(@PathVariable long id, @RequestParam double precio) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);

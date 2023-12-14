@@ -17,10 +17,10 @@ public class ProductoDTO {
     private double precio;
     private String marca;
     private Categoria categoria;
-    private String talle;
-    private String color;
+    private List<String> talle;
+    private List<String> color;
     private double descuento;
-    private String imagen;
+    private List<String> imagen;
     private int cantidad;
     private boolean isActivo;
 
@@ -38,7 +38,7 @@ public class ProductoDTO {
         this.cantidad = producto.getCantidad();
         this.isActivo = producto.isActivo();
     }
-    public ProductoDTO(String nombre,String descripcion, double precio, String marca, Categoria categoria, String talle, String color, double descuento, String imagen, int cantidad) {
+    public ProductoDTO(String nombre,String descripcion, double precio, String marca, Categoria categoria, List<String> talle, List<String> color, double descuento, List<String> imagen, int cantidad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;

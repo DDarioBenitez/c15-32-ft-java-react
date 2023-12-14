@@ -4,7 +4,7 @@ import com.tiendropa.Tienda.de.Ropa.models.Usuario;
 
 import java.util.List;
 
-public interface UserService {
+public interface UsuarioService {
     void save(Usuario usuario);
 
     List<Usuario> findAll();
@@ -16,4 +16,6 @@ public interface UserService {
     boolean existsById(Long id);
 
     Usuario findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }
