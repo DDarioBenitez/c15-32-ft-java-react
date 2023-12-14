@@ -47,6 +47,11 @@ public class Producto {
     private int cantidad;
     @Setter
     private boolean isActivo;
+    @Setter
+    @ElementCollection
+    private List<Integer> puntuaciones = new ArrayList<>();
+
+    private double puntuacionActual;
 
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
@@ -75,5 +80,18 @@ public class Producto {
     public void addDetalle(OrdenDetalle detalle) {
         detalle.setProducto(this);
         this.detalles.add(detalle);
+    }
+
+    public void setPuntuacionActual(int puntuacion) {
+        this.puntuaciones.add(puntuacion);
+        this.puntuacionActual = calcularPromedioPuntuacion(this.puntuaciones);
+    }
+
+    public static double calcularPromedioPuntuacion(List<Integer> puntuaciones) {
+        if (puntuaciones.isEmpty()) {
+            return 0.0;
+        }
+        double sumaPuntuaciones = puntuaciones.stream().mapToInt(Integer::intValue).sum();
+        return sumaPuntuaciones / puntuaciones.size();
     }
 }

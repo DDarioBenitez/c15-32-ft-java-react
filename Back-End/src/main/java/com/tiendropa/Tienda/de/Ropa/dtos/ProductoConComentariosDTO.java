@@ -24,6 +24,7 @@ public class ProductoConComentariosDTO {
     private int cantidad;
     private boolean isActivo;
     private List<ComentarioDTO> comentarios;
+    private double puntuacion;
 
     public ProductoConComentariosDTO(Producto producto){
         this.id = producto.getId();
@@ -39,5 +40,6 @@ public class ProductoConComentariosDTO {
         this.cantidad = producto.getCantidad();
         this.isActivo = producto.isActivo();
         this.comentarios=producto.getComentarios().stream().map(ComentarioDTO::new).toList();
+        this.puntuacion = producto.getPuntuacionActual();
     }
 }

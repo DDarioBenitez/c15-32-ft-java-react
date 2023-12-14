@@ -5,6 +5,7 @@ import com.tiendropa.Tienda.de.Ropa.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping("/all")
+    @Secured("ADMIN")
     public ResponseEntity<Object> getAllUsers() {
         List users = usuarioService.findAll().stream().map(UsuarioDTO::new).toList();
 
@@ -27,6 +29,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
+    @Secured("ADMIN")
     public ResponseEntity<Object> getUser(@PathVariable long id) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);

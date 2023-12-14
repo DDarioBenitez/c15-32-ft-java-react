@@ -7,6 +7,7 @@ import com.tiendropa.Tienda.de.Ropa.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +51,7 @@ public class RegisterController {
 
     @PostMapping("/admin")
     @Transactional
+    @Secured("ADMIN")
     public ResponseEntity<Object> registerAdmin(@RequestBody RegisterDTO nuevoUser) {
         if(nuevoUser.getEmail().isEmpty()){
             return new ResponseEntity<>("El email es incorrecto", HttpStatus.BAD_REQUEST);

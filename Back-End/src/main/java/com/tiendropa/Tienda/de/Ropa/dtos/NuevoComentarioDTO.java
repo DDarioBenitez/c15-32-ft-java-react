@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 public class NuevoComentarioDTO {
     private String body;
 
-    private LocalDateTime fecha;
-
     private long idProducto;
 
-    private long idUser;
+    private long idUsuario;
+
+    private int puntuacion;
 }

@@ -23,6 +23,7 @@ public class ProductoDTO {
     private List<String> imagen;
     private int cantidad;
     private boolean isActivo;
+    private double puntuacion;
 
     public ProductoDTO(Producto producto) {
         this.id = producto.getId();
@@ -37,6 +38,7 @@ public class ProductoDTO {
         this.imagen = producto.getImagen();
         this.cantidad = producto.getCantidad();
         this.isActivo = producto.isActivo();
+        this.puntuacion = producto.getPuntuacionActual();
     }
     public ProductoDTO(String nombre,String descripcion, double precio, String marca, Categoria categoria, List<String> talle, List<String> color, double descuento, List<String> imagen, int cantidad) {
         this.nombre = nombre;

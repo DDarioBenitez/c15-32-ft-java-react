@@ -1,5 +1,6 @@
 package com.tiendropa.Tienda.de.Ropa.services.implement;
 
+import com.tiendropa.Tienda.de.Ropa.models.Usuario;
 import com.tiendropa.Tienda.de.Ropa.services.ComentarioService;
 import com.tiendropa.Tienda.de.Ropa.services.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,15 @@ public class ComentarioImplement implements ComentarioService
     @Override
     public List<Comentario> findAll() {
         return comentarioRepository.findAll();
+    }
+
+    @Override
+    public boolean existsByIdAndUsuario(long id, Usuario usuario) {
+        return comentarioRepository.existsByIdAndUsuario(id, usuario);
+    }
+
+    @Override
+    public Comentario findByIdAndUsuario(long id, Usuario usuario) {
+        return comentarioRepository.findByIdAndUsuario(id, usuario);
     }
 }
