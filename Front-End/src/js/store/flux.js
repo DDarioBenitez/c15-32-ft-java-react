@@ -1,18 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			jewerly: ['1','2'],
+			womansClothing: ['3','4'],
+			mensClothing: ['6','7']
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -23,6 +14,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+			},
+			getJewerly: async (url) => {
+				const store = getStore();
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log({ data });
+					setStore({ jewerly : data });
+					// setStore({ paginationPeople: data, peoplesCount: data.count });
+					return true
+				}
+				catch (error) { console.log(error) };
 			},
 			changeColor: (index, color) => {
 				//get the store

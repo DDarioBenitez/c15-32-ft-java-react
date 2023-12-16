@@ -6,7 +6,7 @@ const Perfil = () => {
 
   const { id } = useParams();
   // useEffect(() => {
-  //     actions.getUserById(name)
+  //     actions.getUserById(id)
   // },[])
 
 
