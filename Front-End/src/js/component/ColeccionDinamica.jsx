@@ -6,9 +6,11 @@ import GaleriaColeccion from './galeriaColeccion.jsx';
 
 
 
-const ColeccionMujer = () => {
-  const { categoria } = useParams();
-console.log('categoria');
+const ColeccionDinamica = () => {
+  const {coleccion} = useParams();
+
+console.log({coleccion});
+
   return (
     <div>
       <div className='d-flex justify-content-center pt-5'>
@@ -25,4 +27,4 @@ console.log('categoria');
   )
 }
 
-export default ColeccionMujer
+export default ColeccionDinamica

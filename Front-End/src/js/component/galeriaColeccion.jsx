@@ -6,14 +6,14 @@ import Card from "./card.jsx";
 
 const GaleriaColeccion = () => {
     const { store, actions } = useContext(Context);
-    console.log(store.jewerly, 'nnn');
+    // console.log(store.jewerly, 'nnn');
 
     return (
         <>
             <div className='d-flex justify-content-center align-items-center '>
                 {store.jewerly?.map((item, index) => {
                     return (
-                        <Card imagen={item.image} />
+                        <Card imagen={item.image} key={index}/>
                     );
                 })
                 }

@@ -16,8 +16,9 @@ const SeguimientoPedido = () => {
                         <label className="visually-hidden" for="autoSizingInput">CODIGO DE SEGUIMIENTO</label>
                         <input type="text" className="form-control" id="autoSizingInput" placeholder="Ej: 001273645" />
                     </div>
-                   
-                    <button type="submit" className="btn text-center">BUSCAR</button>
+                   <div className="d-grid">
+                   <button type="submit" className="btn text-center boton-pag">BUSCAR</button>
+                   </div>
                 </form>
             </div>
         </>

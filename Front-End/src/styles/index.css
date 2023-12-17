@@ -8,14 +8,33 @@
   :root{
     --bs-sand: rgba(235, 207, 166, 0.932);
     --logo: rgb(217 179 130);
-
+    --semi-bold: 600;
+    --semiBlack: #fff0
 
   }
   .body{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-}
-  .logo{
+    text-transform: uppercase !important;
+
+  }
+  .linkStyle, .linkStyle-slidePrincipal{
+    text-decoration: none;
+    color:rgb(21, 21, 24);
+    transition: all 1s;
+
+  }
+  .linkStyle :hover{
+     color:rgb(231, 7, 130);
+     transition: all 0.2s;
+
+  }
+  .linkStyle-slidePrincipal:hover{
+    color:rgb(250, 249, 248);
+    transition: all 1s;
+
+ }
+ .logo{
     /* font-family: 'Libre Baskerville', serif; */
     font-family: auto;
     font-weight: bolder;
@@ -24,10 +43,10 @@
     margin-left: 4%;
     position: relative;
     top: auto;
-}
-.logo-wrap{
+  }
+  .logo-wrap{
     color:  rgb(217 179 130);
-}
+  }
 /* .logo::after{
     content: "estilo moderno, espiritu urbano";
     text-transform: uppercase;
@@ -87,7 +106,23 @@ height: 450px;
         width: 40%;
         margin-left: 15%;
         display: grid;
-        place-content: center
+        place-content: center;
+        /* transition: width 2s, height 4s; */
+        transition: 2s   
+}
+.sale-slidePrincipal{
+        transition: 0.5s;
+
+}
+.sale-slidePrincipal:hover{
+    transition: 0.5s;
+    font-size: 3rem;
+    transition: 1s   
+
+}
+.test2:hover{
+    transition: 0.5s;
+    font-size: 3rem;
 }
 .test{
     background-color: var(--bs-sand);
@@ -130,11 +165,17 @@ height: 450px;
     place-items: center;
 }
 .seguimientoPedidoIcono{
-    font-size: 5rem;
-    color: tan;
+    font-size: 8.5rem;
+    color: burlywood;
 }
-.linkStyle{
-    text-decoration: dashed;
+.boton-pag{
+    background-color: burlywood;
+}
+input{
+    border-radius: 0 !important;
+}
+.card{
+    border-radius: 0;
 }
 .perfilWrapper{
     display: grid;
@@ -146,4 +187,31 @@ height: 450px;
 }
 .card-coleccion{
     height: 300em;
+}
+.form-logIn{
+    min-width: 18.125rem;
+}
+.form-logIn input{
+    border-radius: 0;
+    border: solid black 2px;
+    padding: 0.5em;
+}
+.btn{
+    border-radius: 0 !important;
+}
+.dropdown-menu h3{
+    font-weight: var(--semi-bold);
+    font-size: larger;
+}
+/* .card-carrito-img-container img{
+
+} */
+.carrito-icono {
+    font-size: x-large;
+}
+.offcanvas h6{
+    font-weight: 400;
+}
+.card img{
+    border-radius: 0 !important;
 }
