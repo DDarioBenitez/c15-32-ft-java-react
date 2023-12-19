@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {request} from "../services/AxiosService";
-import { useNavigate } from "react-router";
+import {Link, useNavigate} from "react-router-dom";
 
 
-export default function Registro()
+export default function Login()
 {
     const navigate = useNavigate();
 
@@ -16,17 +16,11 @@ export default function Registro()
     {
         e.preventDefault();
 
-        const form = {email, password};
-        request("POST", "/register/cliente", form).then(() =>
-        {
+        request("POST", `/login?email=${email}&password=${password}`, {}).then(() => {
             navigate("/");
-
-            // Hacer login automaticamente
-            request("POST", `/login?email=${email}&password=${password}`, {});
         })
-        .catch(error =>
-        {
-            setFormError(error.response.data);
+        .catch(() => {
+            setFormError("Correo electrónico o contraseña incorrecta");
         });
     };
 
@@ -34,7 +28,7 @@ export default function Registro()
     return (
         <main className="container py-5">
             <div className="mb-4 text-center">
-                <h2 className="display-6 fw-semibold text-uppercase">Crear cuenta</h2>
+                <h2 className="display-6 fw-semibold text-uppercase">Iniciar sesión</h2>
             </div>
             
             <div className="m-auto p-4 bg-white border rounded-3 shadow" style={{maxWidth: "40rem"}}>
@@ -51,7 +45,16 @@ export default function Registro()
                         <input className="form-control" type="password" id="password" name="password" onChange={e => setPassword(e.target.value)} required/>
                     </div>
 
-                    <button type="submit" className="btn btn-success fw-bold w-100">Crear cuenta</button>
+                    <div>
+                        <button type="submit" className="btn btn-primary fw-bold w-100">Iniciar sesión</button>
+
+                        <hr className="my-4"></hr>
+                        
+                        <div className="d-flex flex-wrap align-items-center justify-content-center gap-2">
+                            <p className="mb-0">¿No tienes una cuenta?</p>
+                            <Link to={"/registro"} className="btn btn-success fw-bold">Regístrate</Link>
+                        </div>
+                    </div>
                 </form>
             </div>
         </main>
