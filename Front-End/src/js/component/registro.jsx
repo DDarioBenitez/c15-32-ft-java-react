@@ -9,6 +9,9 @@ export default function Registro()
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
+    const [telefono, setTelefono] = useState("");
     const [formError, setFormError] = useState("");
 
 
@@ -16,7 +19,7 @@ export default function Registro()
     {
         e.preventDefault();
 
-        const form = {email, password};
+        const form = {email, password, nombre, apellido, telefono};
         request("POST", "/register/cliente", form).then(() =>
         {
             navigate("/");
@@ -53,6 +56,21 @@ export default function Registro()
                     <div className="mb-3">
                         {/* <label className="form-label" htmlFor="password">Contraseña</label> */}
                         <input className="form-control " type="text" id="password" name="password" placeholder="crea tu contraseña" onChange={e => setPassword(e.target.value)} required/>
+                    </div>
+
+                    <div className="mb-3">
+                        {/* <label className="form-label" htmlFor="password">Contraseña</label> */}
+                        <input className="form-control text-uppercase" type="text" id="nombre" name="nombre" placeholder="Nombre" onChange={e => setNombre(e.target.value)} required/>
+                    </div>
+
+                    <div className="mb-3">
+                        {/* <label className="form-label" htmlFor="password">Contraseña</label> */}
+                        <input className="form-control text-uppercase" type="text" id="apellido" name="apellido" placeholder="Apellido" onChange={e => setApellido(e.target.value)} required/>
+                    </div>
+
+                    <div className="mb-3">
+                        {/* <label className="form-label" htmlFor="password">Contraseña</label> */}
+                        <input className="form-control text-uppercase" type="tel" id="telefono" name="telefono" placeholder="Teléfono" onChange={e => setTelefono(e.target.value)} required/>
                     </div>
 
                     <button type="submit" className="btn btn-dark  text-uppercase w-100">enviar</button>
