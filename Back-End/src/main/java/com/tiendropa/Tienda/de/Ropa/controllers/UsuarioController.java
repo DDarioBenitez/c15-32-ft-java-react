@@ -1,6 +1,7 @@
 package com.tiendropa.Tienda.de.Ropa.controllers;
 
 import com.tiendropa.Tienda.de.Ropa.dtos.UsuarioDTO;
+import com.tiendropa.Tienda.de.Ropa.dtos.UsuarioIsActiveDTO;
 import com.tiendropa.Tienda.de.Ropa.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,7 +46,7 @@ public class UsuarioController {
     @GetMapping("/isActive")
     public ResponseEntity<Object> getActiveUsers(Authentication authentication) {
         if (authentication.isAuthenticated()){
-            return new ResponseEntity<>(new UsuarioDTO(usuarioService.findByEmail(authentication.getName())), HttpStatus.OK);
+            return new ResponseEntity<>(new UsuarioIsActiveDTO(usuarioService.findByEmail(authentication.getName())), HttpStatus.OK);
         }
         else {
             return new ResponseEntity<>("El usuario no existe o no esta logeado", HttpStatus.NOT_FOUND);
