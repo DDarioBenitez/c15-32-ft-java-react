@@ -43,4 +43,9 @@ public class ProductoImplement implements ProductoService
     public boolean existsById(long id) {
         return productoRepository.existsById(id);
     }
+
+    @Override
+    public List<Producto> findAllById(List<Long> ids) {
+        return productoRepository.findAllById(ids);
+    }
 }

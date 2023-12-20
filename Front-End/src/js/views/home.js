@@ -8,16 +8,17 @@ import Sale from "../component/Sale.jsx";
 import Registro from "../component/registro.jsx";
 import Card from "../component/card.jsx";
 import Subtitulo from "../component/subtitulo.jsx";
+import SlideCards2 from "../component/slideCards/SlideCards2.jsx";
 
 export const Home = () => (
 	<div className="text-center">
 		<SlidePrincipal/>
 		<Subtitulo texto={'NEW'}/>
-		<SlideCards/>
+		<SlideCards2/>
 		<Subtitulo texto={'COLECCIONES'}/>
 		<Colecciones/>
 		<Subtitulo texto={'SALE'}/>
-		<Sale/>
+		{/* <Sale/> */}
 		<Registro/>
 	</div>
 );

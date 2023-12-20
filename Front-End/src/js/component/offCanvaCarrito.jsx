@@ -8,7 +8,7 @@ const OffCanvaCarrito = () => {
                 <CiShoppingBasket />
             </button>
 
-            <div className="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div className="offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title" id="offcanvasTopLabel">Articulos en el carrito</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
