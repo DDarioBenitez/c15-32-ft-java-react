@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			jewerly: ['1','2'],
 			womansClothing: ['3','4'],
 			mensClothing: ['6','7'],
-			jewerly:[]
+			jewerly:[],
+			products: [],
 		// 	{
         //         "id": 5,
         //         "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
@@ -39,6 +40,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await res.json()
 					console.log({ data });
 					setStore({ jewerly : data });
+					// setStore({ paginationPeople: data, peoplesCount: data.count });
+					return true
+				}
+				catch (error) { console.log(error) };
+			},
+			getProducts: async (url) => {
+				const store = getStore();
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log({ data });
+					setStore({ products : data });
 					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
 				}

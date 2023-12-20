@@ -52,7 +52,7 @@ export default function Registro()
 
                     <div className="mb-3">
                         {/* <label className="form-label" htmlFor="password">Contraseña</label> */}
-                        <input className="form-control   text-uppercase" type="password" id="password" name="password" placeholder="crea tu contraseña" onChange={e => setPassword(e.target.value)} required/>
+                        <input className="form-control " type="text" id="password" name="password" placeholder="crea tu contraseña" onChange={e => setPassword(e.target.value)} required/>
                     </div>
 
                     <button type="submit" className="btn btn-dark  text-uppercase w-100">enviar</button>

@@ -13,9 +13,9 @@ import ProductsSlider from "../component/productsSlider.jsx/productsSlider.jsx";
 
 export const Home = () => (
 	<div className="text-center">
-		<SlidePrincipal/>
+		{/* <SlidePrincipal/> */}
 		<Subtitulo texto={'NEW'}/>
-		<SlideCards2/>
+		{/* <ProductsSlider/> */}
 		<Subtitulo texto={'COLECCIONES'}/>
 		<Colecciones/>
 		<Subtitulo texto={'SALE'}/>

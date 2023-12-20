@@ -32,6 +32,9 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			state.actions.getJewerly('https://fakestoreapi.com/products/category/jewelery/')
+			state.actions.getProducts('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/all')
+
+			
 
 			
 		}, []);

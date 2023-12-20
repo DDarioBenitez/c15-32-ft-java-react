@@ -21,7 +21,7 @@ import '../../../styles/productSlide.css';
 const ProductsSlider = () => {
     const { store, actions } = useContext(Context);
 
-
+    console.log();
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -49,19 +49,19 @@ const ProductsSlider = () => {
         <Carousel responsive={responsive}>
 
 
-            {store.jewerly?.map((item, index) => {
+            {store.products?.map((item, index) => {
                 return (
                     //*******poner link en titulo para enviar a coleccion sale. cambiar data a un archivo nuevo llamado sale.jsx con json de repo externo
                     // <Card imagen={item.image} tituloProducto={item.title} precio={item.price} key={index} />
-                    <div className='card-slide'>
+                    <div key={index} className='card-slide'>
                         {/* <img src="" alt="product-image" className="product--image" />         */}
-                        <img src={item.image} className=" product--image" alt="product image" />
-                        <div className='title-wrap'>
+                        <img src={item.imagen[0]} className=" product--image" alt="product image" />
+                        {/* <div className='title-wrap'>
                         <h6>{item.title}</h6>
                         </div>
                         <hr />
                         <h6 className='price'>{item.price}</h6>
-                        {/* <p>descripcion articulo..</p> */}
+                        <p>descripcion articulo..</p> */}
                         <button>agregar al carrito</button>
                     </div>
 
