@@ -12,9 +12,11 @@
     --semiBlack: #fff0
 
   }
-  .body{
+  *{
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
+  }
+  .body{
     text-transform: uppercase !important;
 
   }
@@ -68,7 +70,7 @@
     background-color: #fff0 !important;
     border: 1px solid transparent !important;
 }
-   .nav-despacho{
+.nav-despacho{
     background-color: var(--bs-sand);
     place-items: center;
     display: grid;
@@ -86,13 +88,13 @@
     border: solid 0.5px rgba(177, 176, 176, 0.603);
     padding: 0.7%;
 }
-.carousel-inner{
+/* .carousel-inner{
 height: 450px;
-}
-.carousel-item img {
+} */
+.carousel-item img{
     object-fit: cover !important;
     max-width: 100%;
-    height: 450px;
+    height: 25em;
 }
 .sale{
         /* background-color: var(--bs-sand); */
@@ -193,9 +195,22 @@ input{
 }
 .form-logIn input{
     border-radius: 0;
-    border: solid black 2px;
+    border: solid black 1px;
     padding: 0.5em;
 }
+.form-register input{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;    
+    border-radius: 0;
+    border-bottom: solid black 1px;
+    padding: 0.5em;
+
+}
+.form-register button{
+    background: burlywood;
+    border: none;
+    color: black;}
 .btn{
     border-radius: 0 !important;
 }
@@ -214,4 +229,12 @@ input{
 }
 .card img{
     border-radius: 0 !important;
+}
+.footer{
+    background: rgb(24, 23, 23);
+    color: darkgrey;
+}
+.rrss-Opal{
+    background: burlywood;
+    color: black!important;
 }

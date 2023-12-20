@@ -13,7 +13,7 @@ const GaleriaColeccion = () => {
             <div className='d-flex justify-content-center align-items-center '>
                 {store.jewerly?.map((item, index) => {
                     return (
-                        <Card imagen={item.image} key={index}/>
+                        <Card imagen={item.image} tituloProducto={item.title} precio={item.price} key={index} />
                     );
                 })
                 }

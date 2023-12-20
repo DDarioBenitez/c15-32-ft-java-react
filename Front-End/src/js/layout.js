@@ -12,6 +12,7 @@ import Perfil from "./component/perfil.jsx";
 import ColeccionDinamica from "./component/ColeccionDinamica.jsx";
 import Registro from "./component/registro.jsx";
 import Login from "./component/login.jsx";
+import OpalRrss from "./component/footer/opalRrss.jsx";
 
 
 //create your first component
@@ -40,6 +41,7 @@ const Layout = () => {
 						<Route exact path="/login" element={<Login/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
+					<OpalRrss />
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

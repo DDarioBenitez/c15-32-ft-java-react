@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Colecciones = () => {
   return (
     <>
-      <div className='d-flex my-5 ms-1'>
+      <div className='d-flex ms-1'>
 
         <Link to="/mujer" className="linkStyle">
           <div className="colection col">
