@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class OrdenDetalleDTO {
     private long id;
     private int cantidad;
-    private BigDecimal precioTotal;
+    private double precioTotal;
     private ProductoDTO producto;
 
     public OrdenDetalleDTO(OrdenDetalle ordenDetalle) {

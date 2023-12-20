@@ -13,4 +13,8 @@ public interface ProductoService {
     Producto findById(Long id);
 
     void deleteById(Long id);
+
+    boolean existsById(long id);
+
+    List<Producto> findAllById(List<Long> ids);
 }

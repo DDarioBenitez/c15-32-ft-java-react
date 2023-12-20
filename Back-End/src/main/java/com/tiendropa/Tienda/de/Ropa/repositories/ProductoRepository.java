@@ -5,7 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.tiendropa.Tienda.de.Ropa.models.Producto;
 
+import java.util.List;
+
 
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
+    boolean existsById(long id);
 
 }

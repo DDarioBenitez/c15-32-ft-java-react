@@ -3,8 +3,10 @@ package com.tiendropa.Tienda.de.Ropa.configurations;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -13,10 +15,12 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
 
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(securedEnabled = true)
 public class WebAuthorization {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -29,7 +33,7 @@ public class WebAuthorization {
                                 .requestMatchers(new AntPathRequestMatcher("/api/register/cliente", "POST")).permitAll()
                                 .anyRequest().authenticated()
                 )
-
+                .cors(cors -> cors.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()))
 
                 .formLogin(formLogin -> formLogin
 
@@ -41,6 +45,7 @@ public class WebAuthorization {
 
                 // turn off checking for CSRF tokens
                 .csrf(AbstractHttpConfigurer::disable)
+                
 
                 //disabling frameOptions so h2-console can be accessed
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))

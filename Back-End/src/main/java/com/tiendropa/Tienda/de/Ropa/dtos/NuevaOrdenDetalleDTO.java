@@ -1,19 +1,15 @@
 package com.tiendropa.Tienda.de.Ropa.dtos;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-
 @NoArgsConstructor@AllArgsConstructor@Getter
-public class NuevoComentarioDTO {
-    private String body;
+public class NuevaOrdenDetalleDTO {
 
-    private long idProducto;
+    private int cantidad;
+    private double precioTotal;
+    private long productoId;
 
-    private long idUsuario;
-
-    private int puntuacion;
 }

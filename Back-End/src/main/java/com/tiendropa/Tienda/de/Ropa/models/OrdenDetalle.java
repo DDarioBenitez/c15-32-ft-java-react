@@ -26,11 +26,17 @@ public class OrdenDetalle {
 
     private int cantidad;
 
-    private BigDecimal precioTotal;
+    private double precioTotal;
 
     @ManyToOne
     private Orden orden;
 
     @ManyToOne
     private Producto producto;
+
+    public OrdenDetalle(int cantidad, double precioTotal) {
+        this.cantidad = cantidad;
+        this.precioTotal = precioTotal;
+
+    }
 }

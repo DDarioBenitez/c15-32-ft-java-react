@@ -13,12 +13,13 @@ public class ComentarioDTO {
     private String body;
     private LocalDateTime fecha;
     private ProductoDTO producto;
-    private UserDTO user;
+    private String userEmail;
 
     public ComentarioDTO(Comentario comentario){
         this.id = comentario.getId();
         this.body = comentario.getBody();
         this.fecha = comentario.getFecha();
         this.producto = new ProductoDTO(comentario.getProducto());
+        this.userEmail = comentario.getUsuario().getEmail();
     }
 }

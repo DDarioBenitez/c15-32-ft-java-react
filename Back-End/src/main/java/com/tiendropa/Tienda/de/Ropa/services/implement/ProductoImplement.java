@@ -38,4 +38,14 @@ public class ProductoImplement implements ProductoService
     public void deleteById(Long id) {
         productoRepository.deleteById(id);
     }
+
+    @Override
+    public boolean existsById(long id) {
+        return productoRepository.existsById(id);
+    }
+
+    @Override
+    public List<Producto> findAllById(List<Long> ids) {
+        return productoRepository.findAllById(ids);
+    }
 }

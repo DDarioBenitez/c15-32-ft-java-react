@@ -9,7 +9,14 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import SeguimientoPedido from "./views/seguimientoPedido.jsx";
 import Perfil from "./component/perfil.jsx";
+<<<<<<< HEAD
 import ColeccionDinamica from "./component/ColeccionDinamica.jsx";
+=======
+import ColeccionMujer from "./component/ColeccionMujer.jsx";
+import Registro from "./component/registro.jsx";
+import Login from "./component/login.jsx";
+
+>>>>>>> a4f6e65bd7266e42df23922e1026971f67f38238
 
 //create your first component
 const Layout = () => {
@@ -33,6 +40,8 @@ const Layout = () => {
 						<Route path="/sale" element={<ColeccionDinamica />} /> */}
 
 						<Route path="/perfil/:id" element={<Perfil />} />
+						<Route exact path="/registro" element={<Registro/>}/>
+						<Route exact path="/login" element={<Login/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

@@ -2,7 +2,7 @@ package com.tiendropa.Tienda.de.Ropa.configurations;
 
 import com.tiendropa.Tienda.de.Ropa.enums.Rol;
 import com.tiendropa.Tienda.de.Ropa.models.Usuario;
-import com.tiendropa.Tienda.de.Ropa.services.UserService;
+import com.tiendropa.Tienda.de.Ropa.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
 
     @Autowired
-    public UserService userService;
+    public UsuarioService usuarioService;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -27,7 +27,7 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(inputName -> {
-            Usuario usuario = userService.findByEmail(inputName);
+            Usuario usuario = usuarioService.findByEmail(inputName);
             if (usuario != null){
                 if(usuario.getRol() != Rol.ADMIN){
                     return new User(usuario.getEmail(), usuario.getPassword(), AuthorityUtils.createAuthorityList("CLIENT"));
