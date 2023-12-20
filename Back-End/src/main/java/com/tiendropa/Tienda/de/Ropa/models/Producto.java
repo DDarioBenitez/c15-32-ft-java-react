@@ -25,6 +25,7 @@ public class Producto {
     @Setter
     private String nombre;
     @Setter
+    @Column(length = 2048)
     private String descripcion;
     @Setter
     private double precio;
@@ -46,7 +47,7 @@ public class Producto {
     @Setter
     private int cantidad;
     @Setter
-    private boolean isActivo;
+    private boolean isActivo = true;
     @Setter
     @ElementCollection
     private List<Integer> puntuaciones = new ArrayList<>();

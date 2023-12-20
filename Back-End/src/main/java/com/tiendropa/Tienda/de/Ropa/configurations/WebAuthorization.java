@@ -31,6 +31,7 @@ public class WebAuthorization {
                                 .requestMatchers(new AntPathRequestMatcher("/api/login", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/api/logout", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/api/register/cliente", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/all", "GET")).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .cors(cors -> cors.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()))
