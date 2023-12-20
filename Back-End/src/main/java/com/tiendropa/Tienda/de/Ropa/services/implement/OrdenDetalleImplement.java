@@ -1,6 +1,7 @@
 package com.tiendropa.Tienda.de.Ropa.services.implement;
 
 import com.tiendropa.Tienda.de.Ropa.services.CrudService;
+import com.tiendropa.Tienda.de.Ropa.services.OrdenDetalleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,16 +10,18 @@ import com.tiendropa.Tienda.de.Ropa.repositories.OrdenDetalleRepository;
 
 import jakarta.persistence.EntityNotFoundException;
 
+import java.util.List;
+
 
 @Service
-public class OrdenDetalleService implements CrudService<OrdenDetalle>
+public class OrdenDetalleImplement implements OrdenDetalleService
 {
     @Autowired
     private OrdenDetalleRepository ordenDetalleRepository;
 
 
     @Override
-    public Iterable<OrdenDetalle> findAll() {
+    public List<OrdenDetalle> findAll() {
         return ordenDetalleRepository.findAll();
     }
 
@@ -32,8 +35,4 @@ public class OrdenDetalleService implements CrudService<OrdenDetalle>
         ordenDetalleRepository.save(entity);
     }
 
-    @Override
-    public void deleteById(Long id) {
-        ordenDetalleRepository.deleteById(id);
-    }
 }

@@ -7,5 +7,4 @@ import com.tiendropa.Tienda.de.Ropa.models.OrdenDetalle;
 
 
 public interface OrdenDetalleRepository extends JpaRepository<OrdenDetalle, Long> {
-
 }
