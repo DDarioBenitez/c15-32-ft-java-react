@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from './card.jsx'
+import { Context } from '../store/appContext.js';
 
 const Sale = () => {
+//imagen es un array de imagenes usar la [0]
+const { store, actions } = useContext(Context);
+
+
   return (
     
         <>
@@ -10,10 +15,13 @@ const Sale = () => {
     
               <div className="carousel-item active cards">
                 <div className='d-flex '>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
+                  {
+                    store.products.map((item, index)=>{
+                      return(
+                        <Card key={item.id} imagen={item.imagen[0]} tituloProducto={item.nombre} precio={item.precio}/>
+                        )
+                    })
+                  }
 
                   {/* <div className='d-flex  col mx-1'>
                     <img src="https://images.pexels.com/photos/833169/pexels-photo-833169.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="cards d-block w-100" alt="..." />
