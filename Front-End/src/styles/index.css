@@ -18,23 +18,20 @@
   }
   .body{
     text-transform: uppercase !important;
-
   }
   .linkStyle, .linkStyle-slidePrincipal{
     text-decoration: none;
     color:rgb(21, 21, 24);
     transition: all 1s;
-
   }
   .linkStyle :hover{
-     color:rgb(231, 7, 130);
+     color:black;
+     font-weight:normal;
      transition: all 0.2s;
-
   }
   .linkStyle-slidePrincipal:hover{
     color:rgb(250, 249, 248);
     transition: all 1s;
-
  }
  .logo{
     /* font-family: 'Libre Baskerville', serif; */
@@ -49,7 +46,8 @@
   .logo-wrap{
     color:  rgb(217 179 130);
   }
-/* .logo::after{
+/* 
+.logo::after{
     content: "estilo moderno, espiritu urbano";
     text-transform: uppercase;
     display: block;
@@ -59,7 +57,6 @@
     margin-left: 4%;
     position: absolute;    
     top: 1;
-
 } */
 .nav-iconos{
     margin-right: 1;
@@ -143,11 +140,15 @@ height: 450px;
 .carousel-item .cards .cards-slide{
     height: 550px !important;
 }
+/* .colecciones{
+    height: 35em;
+} */
 .colection{
     background-color: var(--bs-sand);
+    /* width: 32rem */
 }
 .colection img{
-    height: 400px;
+    height: 38rem;
     object-fit: cover;
 }
 .card-body {

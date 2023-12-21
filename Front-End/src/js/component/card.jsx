@@ -1,4 +1,5 @@
 import React from 'react'
+import { SiGithubsponsors } from "react-icons/si";
 
 const Card = ({imagen, tituloProducto, precio  }) => {
     return (
@@ -12,7 +13,7 @@ const Card = ({imagen, tituloProducto, precio  }) => {
                 </h6>
             </div>
             <div className="card-body">
-                <a href="#" className="card-link">favoritos</a>
+                <a href="#" className="card-link"><SiGithubsponsors/> </a>
                 <a href="#" className="card-link">agregar al carrito</a>
             </div>
         </div>
