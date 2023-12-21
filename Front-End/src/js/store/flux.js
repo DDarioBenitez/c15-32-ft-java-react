@@ -1,9 +1,24 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			jewerly: ['1','2'],
-			womansClothing: ['3','4'],
-			mensClothing: ['6','7']
+			womansClothing: [],
+			mensClothing: [],
+			jewerly:[],
+			products: [],
+			token: true,
+			seePassword: true
+
+		// 	{
+        //         "id": 5,
+        //         "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+        //         "price": 695,
+        //         "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+        //         "category": "jewelery",
+        //         "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+        //         "rating": {
+        //             "rate": 4.6,
+        //             "count": 400
+        // }
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -27,6 +42,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await res.json()
 					console.log({ data });
 					setStore({ jewerly : data });
+					// setStore({ paginationPeople: data, peoplesCount: data.count });
+					return true
+				}
+				catch (error) { console.log(error) };
+			},
+			getProducts: async (url) => {
+				const store = getStore();
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log({ data });
+					setStore({ products : data });
 					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
 				}

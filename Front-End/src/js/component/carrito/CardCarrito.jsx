@@ -3,6 +3,10 @@ import { CiTrash, CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 import { BsTrash } from "react-icons/bs";
 
 const CardCarrito = () => {
+
+// traer producto agregado a carrito desde backend
+
+
   return (
 
     <div className="card mb-3 text-uppercase mx-0" style={{ maxWidth: '540px' }}>
@@ -19,12 +23,16 @@ const CardCarrito = () => {
                 </div>
                 <div className='d-flex align-items-center carrito-cantidad'>
                     <h6><CiSquareMinus className='carrito-icono'/></h6>
+                    {/* funcion para quitar productos del carrito con post */}
                     <h6 className='p-2'>1</h6>
                     <h6><CiSquarePlus className='carrito-icono'/></h6>
+                    {/* funcion para agregar productos al carrito con post */}
                 </div>
                 <h6 className="card-text">$ 0000 </h6>
                 <div className="card-text d-flex ">
                     <h6><BsTrash className=" fw-bolder"/></h6>
+                    {/* funcion para eliminar productos del carrito con post */}
+
                     <p className="p-2 fw-medium pb-0">eliminar</p>
                 </div>
             </div>

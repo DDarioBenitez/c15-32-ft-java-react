@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext.js";
 import Card from "./card.jsx";
 
 
@@ -8,14 +8,17 @@ const GaleriaColeccion = () => {
     const { store, actions } = useContext(Context);
     // console.log(store.jewerly, 'nnn');
 
+
+
     return (
         <>
             <div className='d-flex justify-content-center align-items-center '>
-                {store.jewerly?.map((item, index) => {
-                    return (
-                        <Card imagen={item.image} key={index}/>
-                    );
-                })
+                {
+                    store.products.map((item, index) => {
+                        return (
+                            <Card key={item.id} imagen={item.imagen[0]} tituloProducto={item.nombre} precio={item.precio} />
+                        )
+                    })
                 }
             </div>
 

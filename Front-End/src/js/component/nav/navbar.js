@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { CiDeliveryTruck, CiUser, CiShoppingBasket } from "react-icons/ci";
 import { HiOutlineTruck } from "react-icons/hi2";
-import OffCanvaCarritoRight from "./offCanvaCarritoRight.jsx";
+import OffCanvaCarritoRight from "../carrito/offCanvaCarritoRight.jsx";
 import LoginModal from "./loginModal.jsx";
 
 
@@ -16,7 +16,7 @@ export const Navbar = () => {
 
 				<div className="nav-despacho d-flex justify-content-center">
 					<CiDeliveryTruck />
-					<span className="px-1">Despacho gratis por compras sobre $0000</span>
+					<span className="px-1">Despacho gratis por compras sobre $20.000</span>
 				</div>
 
 				{/* segundo navbar NAV MENU */}

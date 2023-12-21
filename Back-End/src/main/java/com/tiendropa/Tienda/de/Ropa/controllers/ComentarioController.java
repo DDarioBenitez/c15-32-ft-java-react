@@ -71,7 +71,7 @@ public class ComentarioController {
         return new ResponseEntity<>(new ComentarioDTO(comentarioService.findById(id)), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete-comentario")
+    @DeleteMapping("/delete")
     @Transactional
     @Secured("CLIENTE")
     public ResponseEntity<Object> deleteComentarioById(@RequestBody DeleteComentarioDTO deleteComentarioDTO){

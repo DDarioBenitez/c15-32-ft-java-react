@@ -30,8 +30,6 @@ public class Orden {
 
     private double precioTotal;
 
-    private String metodoDePago;
-
     @ManyToOne
     private Usuario usuario;
 

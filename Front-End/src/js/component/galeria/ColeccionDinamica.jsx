@@ -1,5 +1,5 @@
 import React from 'react'
-import Subtitulo from './subtitulo.jsx'
+import Subtitulo from '../landingPage/subtitulo.jsx'
 import { useParams } from 'react-router-dom'
 import Sale from './Sale.jsx';
 import GaleriaColeccion from './galeriaColeccion.jsx';
@@ -7,9 +7,9 @@ import GaleriaColeccion from './galeriaColeccion.jsx';
 
 
 const ColeccionDinamica = () => {
-  const {coleccion} = useParams();
+  const { coleccion } = useParams();
 
-console.log({coleccion});
+  console.log({ coleccion });
 
   return (
     <div>

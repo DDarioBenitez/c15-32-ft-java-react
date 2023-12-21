@@ -12,16 +12,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor @AllArgsConstructor
 @Getter @Setter
+@ToString
 public class Usuario {
 
     @Id
@@ -32,6 +30,12 @@ public class Usuario {
 
     private String password;
 
+    private String nombre;
+
+    private String apellido;
+
+    private String telefono;
+
     private Rol rol;
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
@@ -39,6 +43,15 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
+
+    public Usuario(String email, String password, Rol rol, String nombre, String apellido, String telefono) {
+        this.email = email;
+        this.password = password;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.rol = rol;
+    }
 
     public Usuario(String email, String password, Rol rol) {
         this.email = email;

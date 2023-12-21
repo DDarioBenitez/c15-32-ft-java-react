@@ -44,7 +44,16 @@ public class RegisterController {
         if (!nuevoUser.getPassword().matches(regexPassword)){
             return new ResponseEntity<>("La contraseña no esta dentro de los parametros", HttpStatus.BAD_REQUEST);
         }
-        Usuario usuario = new Usuario(nuevoUser.getEmail(), passwordEncoder.encode(nuevoUser.getPassword()), Rol.CLIENT);
+        if (nuevoUser.getNombre().isEmpty()) {
+            return new ResponseEntity<>("El nombre es incorrecto", HttpStatus.BAD_REQUEST);
+        }
+        if (nuevoUser.getApellido().isEmpty()) {
+            return new ResponseEntity<>("El apellido es incorrecto", HttpStatus.BAD_REQUEST);
+        }
+        if (nuevoUser.getTelefono().isEmpty()) {
+            return new ResponseEntity<>("El telefono es incorrecto", HttpStatus.BAD_REQUEST);
+        }
+        Usuario usuario = new Usuario(nuevoUser.getEmail(), passwordEncoder.encode(nuevoUser.getPassword()), Rol.CLIENT, nuevoUser.getNombre(), nuevoUser.getApellido(), nuevoUser.getTelefono());
         usuarioService.save(usuario);
         return new ResponseEntity<>("Usuario Creado Correctamente", HttpStatus.CREATED);
     }

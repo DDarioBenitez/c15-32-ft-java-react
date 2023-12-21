@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8080/api";
+axios.defaults.baseURL = "http://opal.sa-east-1.elasticbeanstalk.com/api";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 

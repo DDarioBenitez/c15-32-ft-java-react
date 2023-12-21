@@ -24,6 +24,7 @@ import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +48,7 @@ public class TransaccionController {
 
 
     @GetMapping("/checkout")
+    @Secured("CLIENTE")
     public ResponseEntity<?> checkout(@RequestBody NuevaOrdenDTO nuevaOrden, Authentication authentication) throws MPException, MPApiException
         {
 //            Random rand = new Random();
@@ -177,7 +179,7 @@ public class TransaccionController {
                 usuarioService.save(usuario);
                 ordenService.save(orden);
             }
-        }
+ }
         return ResponseEntity.ok().build();
     }
 

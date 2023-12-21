@@ -1,0 +1,56 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+ * {
+    /* text-transform: uppercase !important; */
+    font-size: small;
+}
+
+  
+ h6, p {
+    /* margin: 1rem auto 4rem; */
+    font-size: 1em
+  } 
+  
+  .product--image {
+    width: 100%;
+    min-height: 25em;
+    max-height: 25em;
+    object-fit: cover;
+  }
+  .title-wrap{
+    min-height: 3.5em;
+    max-height: 3.5em;
+  }
+  .card-slide {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 17em;
+    margin: auto 1rem;
+    text-align: center;
+    min-height: 25em;
+    border: solid #ddd4d4 1px;
+  }
+  
+  .price {
+    color: grey;
+    /* font-size: 1.2em; */
+  }
+  
+  .card-slide button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    /* font-size: 18px; */
+  }
+  
+  .card-slide button:hover {
+    opacity: 0.7;
+  }

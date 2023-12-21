@@ -12,32 +12,33 @@
     --semiBlack: #fff0
 
   }
-  .body{
+  *{
     font-family: 'Roboto', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
+  }
+  .body{
     text-transform: uppercase !important;
+    min-height: 100vh;
 
   }
   .linkStyle, .linkStyle-slidePrincipal{
     text-decoration: none;
     color:rgb(21, 21, 24);
     transition: all 1s;
-
   }
   .linkStyle :hover{
-     color:rgb(231, 7, 130);
+     color:black;
+     font-weight:normal;
      transition: all 0.2s;
-
   }
   .linkStyle-slidePrincipal:hover{
     color:rgb(250, 249, 248);
     transition: all 1s;
-
  }
  .logo{
     /* font-family: 'Libre Baskerville', serif; */
     font-family: auto;
-    font-weight: bolder;
+    font-weight: 600!important;
     text-decoration: none;
     color:  rgb(217 179 130);
     margin-left: 4%;
@@ -47,7 +48,8 @@
   .logo-wrap{
     color:  rgb(217 179 130);
   }
-/* .logo::after{
+/* 
+.logo::after{
     content: "estilo moderno, espiritu urbano";
     text-transform: uppercase;
     display: block;
@@ -57,7 +59,6 @@
     margin-left: 4%;
     position: absolute;    
     top: 1;
-
 } */
 .nav-iconos{
     margin-right: 1;
@@ -68,7 +69,7 @@
     background-color: #fff0 !important;
     border: 1px solid transparent !important;
 }
-   .nav-despacho{
+.nav-despacho{
     background-color: var(--bs-sand);
     place-items: center;
     display: grid;
@@ -86,13 +87,13 @@
     border: solid 0.5px rgba(177, 176, 176, 0.603);
     padding: 0.7%;
 }
-.carousel-inner{
+/* .carousel-inner{
 height: 450px;
-}
-.carousel-item img {
+} */
+.carousel-item img{
     object-fit: cover !important;
     max-width: 100%;
-    height: 450px;
+    height: 40em;
 }
 .sale{
         /* background-color: var(--bs-sand); */
@@ -110,15 +111,14 @@ height: 450px;
         /* transition: width 2s, height 4s; */
         transition: 2s   
 }
-.sale-slidePrincipal{
-        transition: 0.5s;
-
+.sale-slidePrincipal, .shop-slidePrincipal{
+    transition: font-size 0.5s ease 0.5s;
 }
 .sale-slidePrincipal:hover{
-    transition: 0.5s;
     font-size: 3rem;
-    transition: 1s   
-
+}
+.shop-slidePrincipal:hover{
+    font-size: 2rem;
 }
 .test2:hover{
     transition: 0.5s;
@@ -141,11 +141,15 @@ height: 450px;
 .carousel-item .cards .cards-slide{
     height: 550px !important;
 }
+/* .colecciones{
+    height: 35em;
+} */
 .colection{
     background-color: var(--bs-sand);
+    /* width: 32rem */
 }
 .colection img{
-    height: 400px;
+    height: 38rem;
     object-fit: cover;
 }
 .card-body {
@@ -193,9 +197,22 @@ input{
 }
 .form-logIn input{
     border-radius: 0;
-    border: solid black 2px;
+    border: solid black 1px;
     padding: 0.5em;
 }
+.form-register input{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;    
+    border-radius: 0;
+    border-bottom: solid black 1px;
+    padding: 0.5em;
+
+}
+.form-register button{
+    background: burlywood;
+    border: none;
+    color: black;}
 .btn{
     border-radius: 0 !important;
 }
@@ -214,4 +231,205 @@ input{
 }
 .card img{
     border-radius: 0 !important;
+}
+.footer{
+    background: rgb(24, 23, 23);
+    color: darkgrey;
+}
+.rrss-Opal{
+    background: burlywood;
+    color: black!important;
+}
+.btnLight-linkStyle {
+    color:black;
+    text-decoration: none;
+    transition: all 1s;
+}
+.btnLight-linkStyle :hover{
+    color:antiquewhite!important;
+     font-weight:normal;
+     transition: all 0.2s;
+}
+
+.btnDark-linkStyle {
+    color:antiquewhite!important;
+    text-decoration: none;
+    transition: all 1s;
+}
+.btnDark-linkStyle :hover{
+     font-weight:normal;
+     transition: all 0.2s;
+}
+.total-carrito {
+    border: solid black 1px;
+}
+.pago-seguro{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
+
+
+}
+
+/* progress bar */
+.progress--bar-section {
+    display: flex;
+    align-items: center;}
+
+    .progress--bar-section {
+        width: 25%;
+        text-align: center;
+        padding: 0 0.5rem;
+        cursor: pointer;
+        position: relative;
+    }
+    .progress--bar-section {
+        width: 25%;
+        text-align: center;
+        padding: 0 0.5rem;
+        cursor: pointer;
+    }
+    .progress--bar-section .stepNumber {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 18px;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 63%;
+    }
+    .progress--bar-container .progress--bar-section:not(:first-child)::before {
+        content: '';
+        position: absolute;
+        right: calc(100% - 55px);
+        top: 25px;
+        width: 110px;
+        border-top: 3px solid gainsboro;
+        transition: ease all 0.3s;
+    }
+    .progress--bar-section {
+        width: 25%;
+        text-align: center;
+        padding: 0 0.5rem;
+        cursor: pointer;
+        position: relative;
+    }
+    .progress--bar-section {
+        width: 25%;
+        text-align: center;
+        padding: 0 0.5rem;
+        cursor: pointer;
+    }
+    @media (min-width: 1023px){
+    .progress--bar-section {
+    display: flex;
+    align-items: center;
+}}
+    @media (min-width: 1023px) {
+    .progress--bar-section p {
+    font-size: 12px;
+}} 
+    @media (max-width: 1200px){
+    .progress--bar-container .progress--bar-section:not(:first-child)::before {
+        right: calc(100% - 47px) !important;
+        width: 95px !important;
+}}
+
+/*Stylos sidebar*/
+
+
+.avatar{
+    max-width: 60px;
+}
+
+.imgContent{
+    display: flex;
+   }
+
+
+.sidebar{
+ 
+   align-items: center;
+   padding: 3rem;
+   
+  
+} 
+ul{
+   
+    list-style: none;
+    
+
+  
+}
+ 
+a{
+    color: black;
+    text-decoration: none;
+    inline-size:auto;
+    cursor: pointer;
+ 
+}
+a:hover{
+    color: black;
+}
+
+
+li{
+    padding: 1rem 1rem;
+   
+}
+
+.flex{
+    display: flex;
+}    
+  
+ 
+
+    
+  
+  
+h4{
+    padding: 1rem;
+}
+
+.container{
+    padding: 4rem 3rem;
+}
+
+.card-body{
+ text-align: start;
+ font-size:large;
+  border-color: black;
+  border-width: medium;
+  
+ 
+  h5{
+    font-weight: 10;
+  }
+}
+
+.label{
+    font-size: medium;
+    padding: 5px;
+    padding-top: 2rem;
+    margin-top: 10rem;
+    
+}
+.form-control{
+    border: none;
+}
+.btnl{
+    width: 100%;
+    border: none;
+    background-color: rgb(236, 233, 233);
+   color: rgb(71, 70, 70);
+    
+}
+.form{
+    display: grid;
+    padding: 1rem 1rem;
 }

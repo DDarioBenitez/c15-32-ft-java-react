@@ -3,20 +3,33 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
+import { Navbar } from "./component/nav/navbar.js";
+import { Footer } from "./component/footer/footer.js";
 import injectContext from "./store/appContext";
+import SeguimientoPedido from "./views/seguimientoPedido.jsx"
+import ColeccionDinamica from "./component/galeria/ColeccionDinamica.jsx";
+import Perfil from "./component/perfil/perfil.jsx";
+import Registro from "./component/perfil/registro.jsx";
+import Login from "./component/nav/login.jsx";
+import OpalRrss from "./component/footer/opalRrss.jsx";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-import SeguimientoPedido from "./views/seguimientoPedido.jsx";
-import Perfil from "./component/perfil.jsx";
-//<<<<<<< HEAD
-import ColeccionDinamica from "./component/ColeccionDinamica.jsx";
-//=======
+import NotFound from "./component/notFound.jsx";
+import ProcesoCompra from "./component/carrito/procesoCompra.jsx";
+import InfoPersonal from "../pageSidebar/infoPersonal.jsx";
+import Direcciones from "../pageSidebar/direcciones.jsx";
+import Autenticacion from "../pageSidebar/autenticacion.jsx";
+import Tarjeta from "../pageSidebar/tarjeta.jsx";
+import Pedidos from "../pageSidebar/pedidos.jsx";
+// import { Navbar } from "./component/navbar";
+// import { Footer } from "./component/footer";
+// import SeguimientoPedido from "./views/seguimientoPedido.jsx";
+// import Perfil from "./component/perfil.jsx";
+// import ColeccionDinamica from "./component/ColeccionDinamica.jsx";
+// import Registro from "./component/registro.jsx";
+// import Login from "./component/login.jsx";
+// import OpalRrss from "./component/footer/opalRrss.jsx";
+// import NotFound from "./component/notFound.jsx";
 
-import Registro from "./component/registro.jsx";
-import Login from "./component/login.jsx";
-
-//>>>>>>> a4f6e65bd7266e42df23922e1026971f67f38238
 
 //create your first component
 const Layout = () => {
@@ -32,18 +45,19 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/seguimientoPedido" element={<SeguimientoPedido />} />
-
 						<Route path=":coleccion" element={<ColeccionDinamica />} />
-						{/* <Route path="/hombre" element={<ColeccionDinamica />} />
-						<Route path="/mujer" element={<ColeccionDinamica />} />
-						<Route path="/accesorios" element={<ColeccionDinamica />} />
-						<Route path="/sale" element={<ColeccionDinamica />} /> */}
-
 						<Route path="/perfil/:id" element={<Perfil />} />
-						<Route exact path="/registro" element={<Registro/>}/>
-						<Route exact path="/login" element={<Login/>}/>
-						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/infoPersonal" element={<InfoPersonal />} />
+						<Route path="/direcciones" element={<Direcciones/>} />
+						<Route path="/autenticacion" element={<Autenticacion/>} />
+						<Route path="/tarjetas" element={<Tarjeta/>} />
+						<Route path="/pedidos" element={<Pedidos/>} />
+						<Route exact path="/registro" element={<Registro />}/>
+						<Route exact path="/login" element={<Login />}/>
+						<Route exact path="/procesoCompra" element={<ProcesoCompra />}/>
+						<Route path="*" element={<NotFound/>} />
 					</Routes>
+					<OpalRrss />
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
