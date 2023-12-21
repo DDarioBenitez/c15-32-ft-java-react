@@ -30,7 +30,7 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
             Usuario usuario = usuarioService.findByEmail(inputName);
             if (usuario != null){
                 if(usuario.getRol() != Rol.ADMIN){
-                    return new User(usuario.getEmail(), usuario.getPassword(), AuthorityUtils.createAuthorityList("CLIENT"));
+                    return new User(usuario.getEmail(), usuario.getPassword(), AuthorityUtils.createAuthorityList("CLIENTE"));
                 }
                 else{
                     return new User(usuario.getEmail(), usuario.getPassword(), AuthorityUtils.createAuthorityList("ADMIN"));
