@@ -11,10 +11,8 @@ const ProcesoCompra = () => {
     return (
 
         <>
-
-
             <div className="text-center">
-                <Subtitulo texto={'CARRITO DE COMPRA'} />
+                <Subtitulo texto={'PROCESO DE COMPRA'} />
             </div>
             <table className="table border text-uppercase px-5 py-5">
                 <thead>
@@ -26,7 +24,13 @@ const ProcesoCompra = () => {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    <CardCompra />
+                        {    store.carro.map((item, i) => {
+                                return (
+                                    <CardCompra item={item}/>
+
+                                    )
+                            })
+                        }
                     <tr>
                         <th scope="row">titulo producto</th>
                         <td>$0000</td>

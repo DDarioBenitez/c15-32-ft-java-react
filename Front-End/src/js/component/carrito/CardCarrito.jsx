@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CiTrash, CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 import { BsTrash } from "react-icons/bs";
+import { Context } from '../../store/appContext';
 
-const CardCarrito = () => {
-
-// traer producto agregado a carrito desde backend
+const CardCarrito = ({item}) => {
+    const { store, actions } = useContext(Context);
 
 
   return (
@@ -17,21 +17,21 @@ const CardCarrito = () => {
         <div className="col-md-8">
             <div className="card-body ps-3">
                 <div>
-                    <h6 className="card-title ">titulo producto</h6>
+                    <h6 className="card-title ">{item.titulo}</h6>
                     <p className="card-text mb-1">color </p>
                     <p className="card-text mb-2">talla  </p>
                 </div>
                 <div className='d-flex align-items-center carrito-cantidad'>
                     <h6><CiSquareMinus className='carrito-icono'/></h6>
-                    {/* funcion para quitar productos del carrito con post */}
-                    <h6 className='p-2'>1</h6>
+                    {/* funcion para quitar productos del carrito */}
+                    <h6 className='p-2'>{item.cantidad}</h6>
                     <h6><CiSquarePlus className='carrito-icono'/></h6>
-                    {/* funcion para agregar productos al carrito con post */}
+                    {/* funcion para agregar productos al carrito */}
                 </div>
-                <h6 className="card-text">$ 0000 </h6>
+                <h6 className="card-text">$ {item.precio} </h6>
                 <div className="card-text d-flex ">
                     <h6><BsTrash className=" fw-bolder"/></h6>
-                    {/* funcion para eliminar productos del carrito con post */}
+                    {/* funcion para eliminar productos del carrito */}
 
                     <p className="p-2 fw-medium pb-0">eliminar</p>
                 </div>
