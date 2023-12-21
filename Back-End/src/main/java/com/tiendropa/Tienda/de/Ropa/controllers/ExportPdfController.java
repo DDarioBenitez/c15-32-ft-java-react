@@ -15,6 +15,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/pdf")
+@RequestMapping("/api/ticket")
 public class ExportPdfController {
 
     @Autowired
@@ -38,6 +39,7 @@ public class ExportPdfController {
     private OrdenService ordenService;
 
     @GetMapping("/export")
+    @Secured("CLIENTE")
     public ResponseEntity<Object> exportPdf(@RequestParam long ordenId, Authentication auth) throws IOException, DocumentException {
         Usuario usuario = usuarioService.findByEmail(auth.getName());
         if (ordenId <= 0 || !ordenService.existsByIdAndUsuario(ordenId, usuario)) {

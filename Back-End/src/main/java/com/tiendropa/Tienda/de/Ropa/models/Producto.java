@@ -1,6 +1,7 @@
 package com.tiendropa.Tienda.de.Ropa.models;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,9 @@ public class Producto {
 
     private double puntuacionActual;
 
+    @Setter
+    private LocalDate fechaCreacion;
+
     @OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
     private List<Comentario> comentarios = new ArrayList<>();
 
@@ -71,6 +75,7 @@ public class Producto {
         this.descuento = descuento;
         this.imagen = imagen;
         this.cantidad = cantidad;
+        this.fechaCreacion = LocalDate.now();
         this.isActivo = true;
     }
 

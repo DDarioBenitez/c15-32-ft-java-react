@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @NoArgsConstructor@AllArgsConstructor@Getter
 public class UsuarioIsActiveDTO {
     private long id;
@@ -13,6 +16,7 @@ public class UsuarioIsActiveDTO {
     private String apellido;
     private String telefono;
     private String rol;
+    private List<OrdenDTO> orden = new ArrayList<>();
 
     public UsuarioIsActiveDTO(Usuario usuario){
         this.id = usuario.getId();
@@ -21,5 +25,7 @@ public class UsuarioIsActiveDTO {
         this.apellido = usuario.getApellido();
         this.telefono = usuario.getTelefono();
         this.rol = usuario.getRol().name();
+        this.orden = usuario.getOrden().stream().map(OrdenDTO::new).toList();
+
     }
 }

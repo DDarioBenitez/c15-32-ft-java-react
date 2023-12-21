@@ -22,7 +22,7 @@ public class UsuarioController {
     @GetMapping("/all")
     @Secured("ADMIN")
     public ResponseEntity<Object> getAllUsers() {
-        List users = usuarioService.findAll().stream().map(UsuarioDTO::new).toList();
+        List<UsuarioDTO> users = usuarioService.findAll().stream().map(UsuarioDTO::new).toList();
 
         if(users.isEmpty()) {
             return new ResponseEntity<>("No se encontraron usuarios", HttpStatus.NOT_FOUND);
@@ -31,7 +31,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    @Secured("ADMIN")
+    @Secured({"ADMIN","CLIENTE"})
     public ResponseEntity<Object> getUser(@PathVariable long id) {
         if (id <= 0) {
             return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
