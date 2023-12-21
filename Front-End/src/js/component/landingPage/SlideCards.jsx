@@ -1,27 +1,17 @@
 import React, { useContext } from 'react';
-import { Context } from '../../store/appContext';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+//import '../../styles/productSlide.css';
+import { Context } from '../../store/appContext';
+// import Carousel from 'react-multi-carousel';
+import Carousel from 'react-multi-carousel';
 import '../../../styles/productSlide.css';
 
-{/* {
-                "id": 5,
-                "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
-                "price": 695,
-                "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-                "category": "jewelery",
-                "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-                "rating": {
-                    "rate": 4.6,
-                    "count": 400
-        } */}
 
 
-
-const ProductsSlider = () => {
+const SlideCards = () => {
     const { store, actions } = useContext(Context);
 
-    console.log();
+    console.log({ products });
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -42,10 +32,9 @@ const ProductsSlider = () => {
         }
     };
 
-
-
-
     return (
+        // cada cara del slide seria un componente con una cantidad x de cards para web serian 4 cards ver material ui https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
+
         <Carousel responsive={responsive}>
 
 
@@ -57,11 +46,11 @@ const ProductsSlider = () => {
                         {/* <img src="" alt="product-image" className="product--image" />         */}
                         <img src={item.imagen[0]} className=" product--image" alt="product image" />
                         {/* <div className='title-wrap'>
-                        <h6>{item.title}</h6>
-                        </div>
-                        <hr />
-                        <h6 className='price'>{item.price}</h6>
-                        <p>descripcion articulo..</p> */}
+            <h6>{item.title}</h6>
+            </div>
+            <hr />
+            <h6 className='price'>{item.price}</h6> */}
+                        {/* <p>descripcion articulo..</p> */}
                         <button>agregar al carrito</button>
                     </div>
 
@@ -69,13 +58,9 @@ const ProductsSlider = () => {
             })
             }
 
-            {/* <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div> */}
         </Carousel>
-
 
     )
 }
 
-export default ProductsSlider
+export default SlideCards

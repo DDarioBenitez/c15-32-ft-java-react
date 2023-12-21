@@ -1,11 +1,13 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			jewerly: ['1','2'],
-			womansClothing: ['3','4'],
-			mensClothing: ['6','7'],
+			womansClothing: [],
+			mensClothing: [],
 			jewerly:[],
 			products: [],
+			token: false,
+			seePassword: true
+
 		// 	{
         //         "id": 5,
         //         "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
