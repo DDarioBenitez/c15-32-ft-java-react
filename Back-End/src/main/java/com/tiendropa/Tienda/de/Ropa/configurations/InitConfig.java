@@ -3,6 +3,11 @@ package com.tiendropa.Tienda.de.Ropa.configurations;
 import java.util.Arrays;
 import java.util.Random;
 
+import com.tiendropa.Tienda.de.Ropa.enums.Categoria;
+import com.tiendropa.Tienda.de.Ropa.models.Orden;
+import com.tiendropa.Tienda.de.Ropa.models.OrdenDetalle;
+import com.tiendropa.Tienda.de.Ropa.services.OrdenDetalleService;
+import com.tiendropa.Tienda.de.Ropa.services.OrdenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -27,6 +32,12 @@ public class InitConfig
     private ProductoService productoService;
 
     @Autowired
+    private OrdenDetalleService ordenDetalleService;
+
+    @Autowired
+    private OrdenService ordenService;
+
+    @Autowired
     private PasswordEncoder encoder;
 
 
@@ -34,12 +45,16 @@ public class InitConfig
     public void init()
     {
         Producto producto = null;
+        OrdenDetalle od = null;
+        Orden orden = null;
         Random rand = new Random();
 
         Usuario cliente = new Usuario();
         cliente.setEmail("cliente@mail.com");
         cliente.setPassword(encoder.encode("123"));
         cliente.setRol(Rol.CLIENT);
+        cliente.setNombre("Prueba");
+        cliente.setApellido("Prueba");
         usuarioService.save(cliente);
 
         Usuario admin = new Usuario();
@@ -48,6 +63,9 @@ public class InitConfig
         admin.setRol(Rol.ADMIN);
         usuarioService.save(admin);
 
+        orden = new Orden();
+        orden.setUsuario(cliente);
+        od = new OrdenDetalle();
 
         producto = new Producto();
         producto.setNombre("Musculosa Crepe Flowns - Off White Mujer Portsaid");
@@ -58,7 +76,19 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_608150-MLA72380528171_102023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_962922-MLA72380528173_102023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_900246-MLA72380528175_102023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
+        od.setPrecioTotal(producto.getPrecio()*12);
+        od.setCantidad(12);
+        producto.addDetalle(od);
+        orden.setPrecioTotal(producto.getPrecio()*12);
+        orden.addDetalles(od);
+
+        ordenService.save(orden);
         productoService.save(producto);
+        ordenDetalleService.save(od);
+
+
+        od = new OrdenDetalle();
 
         producto = new Producto();
         producto.setNombre("Chomba Vatiare Beige");
@@ -69,7 +99,17 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_600131-MLA51483246856_092022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_997054-MLA51483246859_092022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_822922-MLA51483246854_092022-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.MEN);
+        od.setPrecioTotal(producto.getPrecio()*5);
+        od.setCantidad(5);
+        producto.addDetalle(od);
+        orden.setPrecioTotal(orden.getPrecioTotal()+producto.getPrecio()*5);
+        orden.addDetalles(od);
+        ordenService.save(orden);
         productoService.save(producto);
+        ordenDetalleService.save(od);
+
+        od = new OrdenDetalle();
 
         producto = new Producto();
         producto.setNombre("Camisa Basica Recta Mujer Sweet Portel");
@@ -80,7 +120,16 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_862731-MLA72204366605_102023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_640885-MLA72204209867_102023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
+        od.setPrecioTotal(producto.getPrecio()*2);
+        od.setCantidad(2);
+        producto.addDetalle(od);
+        orden.setPrecioTotal(orden.getPrecioTotal()+producto.getPrecio()*2);
+        orden.addDetalles(od);
+        ordenService.save(orden);
         productoService.save(producto);
+        ordenDetalleService.save(od);
+
 
         producto = new Producto();
         producto.setNombre("Vestido Doha Batik De Mujer 47 Street");
@@ -91,6 +140,7 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_637740-MLA52028206523_102022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_822093-MLA52028206530_102022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_860255-MLA52028206522_102022-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -113,6 +163,7 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_918181-MLA51304792604_082022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_862953-MLA51304858215_082022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_986591-MLA51304848248_082022-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -135,6 +186,7 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_839889-MLA72646235143_112023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_967881-MLA72646235145_112023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_816524-MLA72646235139_112023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -146,6 +198,7 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_857815-MLA71007055455_082023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_824024-MLA71007055457_082023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -157,6 +210,7 @@ public class InitConfig
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_849274-MLA72224576131_102023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_681028-MLA72224585923_102023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -168,6 +222,7 @@ public class InitConfig
         producto.setCantidad(rand.nextInt(90) + 1);
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
         /* 
@@ -182,5 +237,9 @@ public class InitConfig
         producto.setColor(Arrays.asList("Blanco"));
         productoService.save(producto);
         */
+
+
+        //Orden
+
     }
 }

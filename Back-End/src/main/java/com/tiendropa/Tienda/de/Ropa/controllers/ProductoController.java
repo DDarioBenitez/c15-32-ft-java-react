@@ -13,6 +13,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -22,19 +23,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    @GetMapping("/all")
-    public ResponseEntity<Object> getAllProductos() {
-        List<ProductoDTO> productos = productoService.findAll().stream().map(ProductoDTO::new).toList();
-        return new ResponseEntity<>(productos, HttpStatus.OK);
-    }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> getProducto(@PathVariable long id) {
-        if (id <= 0) {
-            return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(new ProductoConComentariosDTO(productoService.findById(id)), HttpStatus.OK);
-    }
 
     @PostMapping("/add")
     @Transactional
@@ -70,6 +59,50 @@ public class ProductoController {
         productoService.save(productoNuevo);
 
         return new ResponseEntity<>("Producto Agregado con Exito", HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<Object> getAllProductos() {
+        List<ProductoDTO> productos = productoService.findAll().stream().map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getProducto(@PathVariable long id) {
+        if (id <= 0) {
+            return new ResponseEntity<>("El id es incorrecto", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(new ProductoConComentariosDTO(productoService.findById(id)), HttpStatus.OK);
+    }
+
+    @GetMapping("/men")
+    public ResponseEntity<Object> getProductosMen() {
+        List<ProductoDTO> productos = productoService.findAll().stream().filter(producto -> producto.getCategoria() == Categoria.MEN).map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/woman")
+    public ResponseEntity<Object> getProductosWomen() {
+        List<ProductoDTO> productos = productoService.findAll().stream().filter(producto -> producto.getCategoria() == Categoria.WOMAN).map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/jewerly")
+    public ResponseEntity<Object> getProductosJewerly() {
+        List<ProductoDTO> productos = productoService.findAll().stream().filter(producto -> producto.getCategoria() == Categoria.JEWERLY).map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/sale")
+    public ResponseEntity<Object> getProductosSale() {
+        List<ProductoDTO> productos= productoService.findAll().stream().filter(producto -> producto.getDescuento() > 0).map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/new")
+    public ResponseEntity<Object> getProductosNew() {
+        List<ProductoDTO> productos= productoService.findAll().stream().filter(producto -> producto.getFechaCreacion().isBefore(LocalDate.now().minusMonths(3))).map(ProductoDTO::new).toList();
+        return new ResponseEntity<>(productos, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
