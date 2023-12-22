@@ -248,23 +248,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				catch (error) { console.log(error) };
 			},
-			// getProducts: async (url) => {
-			// 	const store = getStore();
-			// 	try {
-			// 		const res = await fetch(url, {
-			// 			method: 'GET',
-			// 			headers: {
-			// 				'Content-Type': 'application/json'
-			// 			}
-			// 		})
-			// 		const data = await res.json()
-			// 		console.log({ data });
-			// 		setStore({ products : data, opalApi: [...store.opalApi, data] });
-			// 		console.log(store.opalApi);
-			// 		return true
-			// 	}
-			// 	catch (error) { console.log(error) };
-			// },
+			getProducts: async (url) => {
+				const store = getStore();
+				try {
+					const res = await fetch(url, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log({ data });
+					setStore({ products : data, opalApi: [...store.opalApi, data] });
+					console.log(store.opalApi);
+					return true
+				}
+				catch (error) { console.log(error) };
+			},
 			getOneProduct: async (url, id) => {
 				const store = getStore();
 				try {
@@ -293,15 +293,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return counter
 				// se usa en cards para aumentar la cantidad de productos
 			}, //aumentar cantidad producto carrito
-			addCarrito : (item)=>{
+			addCarrito: (item) => {
 				const store = getStore();
-				const counter = getActions().modificarCantidad(item)
-				const{nombre, imagen, precio}=item
-				let found = store.carrito.find((prod) => prod.imagen === imagen)
-				if (found) return;
-				setStore({carrito : [...store.carrito, {nombre, imagen, precio, cantidad : counter}]})
+				const { id, nombre, precio, imagen, talle, color } = item;
+			
+				const productoEnCarrito = store.carrito.find((producto) => item.id === producto.id);
+			
+				if (productoEnCarrito) {
+					// Si el producto ya está en el carrito, actualiza la cantidad
+					const nuevoCarrito = store.carrito.map((producto) =>
+						item.id === producto.id ? { ...producto, cantidad: producto.cantidad + 1 } : producto
+					);
+					setStore({ carrito: nuevoCarrito }); // Quita los corchetes extras
+				} else {
+					setStore({ carrito: [...store.carrito, { id, nombre, precio, imagen, cantidad: 1, talle, color }] });
+				}
+			
 				console.log(store.carrito);
-			}, //agregar a carrito
+			},
 			getProductById: (id, nombre)=>{
 					const store = getStore();
 

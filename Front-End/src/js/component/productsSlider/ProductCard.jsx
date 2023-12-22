@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { CiHeart } from 'react-icons/ci'
+import { CiHeart, CiSquareMinus, CiSquarePlus } from 'react-icons/ci'
 import { BiMessage } from "react-icons/bi";
 import { Link, useParams } from 'react-router-dom';
 import { Context } from '../../store/appContext';
@@ -11,6 +11,7 @@ const ProductCard = ({ item }) => {
     const { id } = useParams();
 
     const productId = 1
+    const counter = 1;
 
 
     return (
@@ -38,7 +39,7 @@ const ProductCard = ({ item }) => {
 
                 </div>
                 <h6 className="card-text fw-light">
-                    $ {precio * counter}
+                    $ {item.precio * counter}
                 </h6>
             {/* actions.modificarCantidad() */}
             {/*dejar comentario eliminar modificar agregar*/}

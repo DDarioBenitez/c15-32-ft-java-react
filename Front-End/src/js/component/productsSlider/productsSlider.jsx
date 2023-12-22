@@ -22,7 +22,8 @@ import ProductCard from './ProductCard.jsx';
 const ProductsSlider = () => {
     const { store, actions } = useContext(Context);
 
-    console.log(store.carrito);
+
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -43,11 +44,7 @@ const ProductsSlider = () => {
         }
     };
 
-    const addCarrito = (item) => {
-        const { nombre, precio, imagen } = item;
-        // const newItem = {...item, cantidad: cantidad}
-        setStore({ carrito: [...carrito, item] });
-    };
+
 
 
     return (
