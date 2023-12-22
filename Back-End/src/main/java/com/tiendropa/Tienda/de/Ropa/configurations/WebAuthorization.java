@@ -1,5 +1,6 @@
 package com.tiendropa.Tienda.de.Ropa.configurations;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -32,6 +33,12 @@ public class WebAuthorization {
                                 .requestMatchers(new AntPathRequestMatcher("/api/logout", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/api/register/cliente", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/api/producto/all", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/{id}", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/men", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/woman", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/jewerly", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/sale", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/producto/new", "GET")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/api/user/isActive", "GET")).permitAll()
                                 .anyRequest().authenticated()
@@ -57,7 +64,12 @@ public class WebAuthorization {
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint((request, response, authException) -> clearAuthenticationAttributes(request)))
 
                 // if login is successful, just clear the flags asking for authentication
-                .formLogin(formLogin -> formLogin.successHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK)))
+                .formLogin(formLogin -> formLogin.successHandler((request, response, authentication) -> {
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    Cookie cookie = new Cookie("miCookie", "valorDeLaCookie");
+                    cookie.setPath("/"); // Establecer el path adecuado
+                    response.addCookie(cookie);
+                }))
 
                 // if login fails, just send an authentication failure response
                 .formLogin(formLogin -> formLogin.failureHandler((request, response, authException) -> response.setStatus(HttpServletResponse.SC_UNAUTHORIZED)))
