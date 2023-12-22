@@ -17,6 +17,7 @@ Footer
 
 import NotFound from "./component/notFound.jsx";
 import ProcesoCompra from "./component/carrito/procesoCompra.jsx";
+import DetalleProducto from "./views/detalleProducto.jsx";
 // import { Navbar } from "./component/navbar";
 // import { Footer } from "./component/footer";
 // import SeguimientoPedido from "./views/seguimientoPedido.jsx";
@@ -44,6 +45,9 @@ const Layout = () => {
 						<Route path="/seguimientoPedido" element={<SeguimientoPedido />} />
 						<Route path=":coleccion" element={<ColeccionDinamica />} />
 						<Route path="/perfil/:id" element={<Perfil />} />
+						<Route path="/DetalleProducto/:nombre/:id" element={<DetalleProducto />} />
+
+						
 						<Route exact path="/registro" element={<Registro />}/>
 						<Route exact path="/login" element={<Login />}/>
 						<Route exact path="/procesoCompra" element={<ProcesoCompra />}/>

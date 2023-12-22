@@ -262,6 +262,7 @@ input{
 }
 .total-carrito {
     border: solid black 1px;
+    font-size: 6rem!important;
 }
 .pago-seguro{
     padding-top: 3rem;
