@@ -135,7 +135,7 @@ public class TransaccionController {
 
             System.out.println(preference.getId().toString());
 
-            return ResponseEntity.ok(preference.getId()); // Devolver el "preference_id" creado
+            return ResponseEntity.ok(preference.getSandboxInitPoint()); // Devolver el "preference_id" creado
         }
 
     @PostMapping("/mercadopago/webhook")
