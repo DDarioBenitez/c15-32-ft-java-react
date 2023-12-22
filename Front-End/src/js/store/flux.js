@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			mensClothing: [],
 			jewerly:[],
 			products: [],
+			carrito: [],
 			token: false,
 			seePassword: true
 
@@ -64,9 +65,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				catch (error) { console.log(error) };
 			},
+			addCarrito: (item) => {
+				const store = getStore();
+				const { id, nombre, precio, imagen } = item;
+			
+				const productoEnCarrito = store.carrito.find((producto) => item.id === producto.id);
+			
+				if (productoEnCarrito) {
+					// Si el producto ya está en el carrito, actualiza la cantidad
+					const nuevoCarrito = store.carrito.map((producto) =>
+						item.id === producto.id ? { ...producto, cantidad: producto.cantidad + 1 } : producto
+					);
+					setStore({ carrito: nuevoCarrito }); // Quita los corchetes extras
+				} else {
+					setStore({ carrito: [...store.carrito, { id, nombre, precio, imagen, cantidad: 1 }] });
+				}
+			},
 			changeColor: (index, color) => {
 				//get the store
-				const store = getStore();
+				const store = getStore()
 
 				//we have to loop the entire demo array to look for the respective index
 				//and change its color

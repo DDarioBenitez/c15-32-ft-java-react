@@ -10,9 +10,7 @@ const ProcesoCompra = () => {
 
     return (
 
-        <>
-
-
+        <div className='container-fluid'>
             <div className="text-center">
                 <Subtitulo texto={'CARRITO DE COMPRA'} />
             </div>
@@ -93,7 +91,7 @@ const ProcesoCompra = () => {
                 <HiOutlineLockClosed /> <span className='py-5'>Pago seguro</span>
             </div>
 
-        </>
+        </div>
     )
 }
 

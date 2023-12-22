@@ -21,7 +21,8 @@ import '../../../styles/productSlide.css'
 const ProductsSlider = () => {
     const { store, actions } = useContext(Context);
 
-    console.log();
+
+
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -43,6 +44,7 @@ const ProductsSlider = () => {
     };
 
 
+    
 
 
     return (
@@ -62,7 +64,7 @@ const ProductsSlider = () => {
                         <hr />
                         <h6 className='price'>{item.price}</h6>
                         <p>descripcion articulo..</p> */}
-                        <button>agregar al carrito</button>
+                        <button onClick={() => actions.addCarrito(item)}>agregar al carrito</button>
                     </div>
 
                 );

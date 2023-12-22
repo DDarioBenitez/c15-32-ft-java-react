@@ -22,7 +22,13 @@ const OffCanvaCarritoRight = () => {
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div className="offcanvas-body">
-                    <CardCarrito />
+                {
+                    store.carrito.map((item, i)=>{
+                        return(
+                            <CardCarrito item={item} key={i}/>
+                        )
+                    })
+                }
                 </div>
                 <hr />
                 <div className="text-uppercase float-left fs-bolder p-3">total: $ total detalles endpoint </div>
