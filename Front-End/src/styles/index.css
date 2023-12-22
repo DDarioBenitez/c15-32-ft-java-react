@@ -339,3 +339,6 @@ input{
         right: calc(100% - 47px) !important;
         width: 95px !important;
 }}
+.coleccionDinamica{
+    min-height: 100vh;
+}

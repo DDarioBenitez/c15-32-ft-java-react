@@ -6,7 +6,7 @@ import Card from "./card.jsx";
 
 const GaleriaColeccion = () => {
     const { store, actions } = useContext(Context);
-    console.log(store.jewerly, 'nnn');
+    console.log(store.jewelery, 'nnn');
     const numberfll = new Array(9)//array con numeros para mapear y crear galeria 4 cards por fila
     //caada row tiene que tener 4 cards, cada card col-4? sidebar para filtros? o offcanvas
     //responsive.

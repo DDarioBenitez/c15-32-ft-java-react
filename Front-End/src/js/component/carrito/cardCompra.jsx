@@ -21,6 +21,7 @@ const CardCompra = () => {
     </td>
 
     <td>${carro.precio * carro.cantidad}
+    {/* //setStore carrito con eso*/}
     <span className='ms-4'><IoCloseOutline /></span>
     </td>
     {/* funcion para eliminar productos del carrito con post */}

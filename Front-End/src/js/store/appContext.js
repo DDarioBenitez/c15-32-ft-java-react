@@ -31,8 +31,8 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			state.actions.getJewerly('https://fakestoreapi.com/products/category/jewelery/')
-			// state.actions.getJoyas('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/jewerly')
+			state.actions.getJewelery('https://fakestoreapi.com/products/category/jewelery/')
+			// state.actions.getAccesorios('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/jewerly')
 			// state.actions.getWoman('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/woman')
 			// state.actions.getMen('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/men')
 			// state.actions.getSale('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/sale')
