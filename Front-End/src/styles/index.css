@@ -341,9 +341,9 @@ input{
         right: calc(100% - 47px) !important;
         width: 95px !important;
 }}
-.coleccionDinamica{
+/* .coleccionDinamica{
     min-height: 100vh;
-}
+} */
 .proceso-compra{
     height: 70vh;
 }

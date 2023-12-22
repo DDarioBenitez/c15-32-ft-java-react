@@ -12,7 +12,7 @@ import CardProduct from '../galeria/CardProduct.jsx';
 const SlideCards = () => {
     const { store, actions } = useContext(Context);
 
-    console.log(store.products);
+    // console.log(store.products);
 
     const responsive = {
         superLargeDesktop: {

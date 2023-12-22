@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext.js";
 import Card from "./card.jsx";
+import ProductCard from "../productsSlider/ProductCard.jsx";
 
 
 
@@ -10,15 +11,24 @@ const GaleriaNew = (props) => {
 
     return (
         <>
-            <div className='d-flex justify-content-center align-items-center '>
-                {
-                    store.products.map((item, index) => {
-                        return (
-                            <Card key={item.id} imagen={item.imagen[0]} tituloProducto={item.nombre} precio={item.precio} />
-                        )
-                    })
-                }
+            <div class=" d-flex justify-content-between p-4 ">
+                <div class="container">
+                    <div class="d-flex flex-row align-items-center ">
+                        {
+                            store.new.map((item, index) => {
+                                return (
+                                    <div className="col-md-4 " >
+
+                                    <ProductCard key={item.id} item={item} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+
+                </div>
             </div>
+
 
             {/* {
                 "id": 5,

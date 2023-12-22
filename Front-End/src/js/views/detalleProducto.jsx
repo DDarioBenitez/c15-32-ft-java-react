@@ -8,61 +8,58 @@ const DetalleProducto = (props) => {
     const { id, nombre } = useParams();
 
     useEffect(() => {
-        // console.log('se ejecuta useeffect', name);
         actions.getProductById(id, nombre)//byuid? byurl
-        // actions.detailPeople(url)
-    },[])
+    }, [])
 
     return (
         <>
 
             {store.product?.nombre == nombre ?
                 (
-                    <p>producto</p>
+                    <div className='container  pt-3 mt-2 '>
+                        <div className="d-flex justify-content-around mb-2 container">
+                            <div className='col-6'>
+                                <img src={props.imagen} alt="" className='img-fluid' />
+                            </div>
+                            <div className='col-6 px-3'>
+                                <span className='text-uppercase d-flex text-start my-4'>{item?.nombre}</span>
+                                <p className='text-uppercase fs-4'> {item?.description}</p>
+
+                                <select class="form-select card-text" aria-label="Default select example">
+                                    <option selected>talle</option>
+                                    <option defaultValue="1">{item.talle[0]}</option>
+                                    <option value="2">{item.talle[1]}</option>
+                                    <option value="3">{item.talle[2]}</option>
+                                </select>
+
+                                <select class="form-select card-text" aria-label="Default select example">
+                                    <option selected>talle</option>
+                                    <option defaultValue={item.color[0]}>{item.color[0]}</option>
+                                    <option value={item.color[0]}>{item.color[1]}</option>
+                                    <option value={item.color[0]}>{item.color[2]}</option>
+                                
+                                </select>
+
+                                <div className='d-flex align-items-center carrito-cantidad'>
+                                    <h6><CiSquareMinus className='carrito-icono' /></h6>
+                                    {/* funcion para quitar productos del carrito */}
+                                    <h6 className='p-2'>{item.cantidad}</h6>
+                                    <h6><CiSquarePlus className='carrito-icono' /></h6>
+                                    {/* funcion para agregar productos al carrito */}
+                                </div>
+
+                                <p className='text-uppercase fs-4'> {item?.precio}</p>
+                                <p className='text-uppercase fs-4'> {item?.total}</p>
+
+                                <div className="total-cantidad"></div>
+                            </div>
+                        </div>
+
+                    </div>
                 )
-                // <div className='container background pt-3 mt-2 rounded'>
-                //     <div className="d-flex justify-content-around mb-2 container background rounded">
-                //         <div className='col-6'>
-                //             <img src={props.image} alt="" className='img-fluid' />
-                //         </div>
-                //         <div className='col-6 px-3'>
-                //             <span className='text-danger characterName d-flex text-start my-4'>{store?.planet?.name}</span>
-                //             <p className='texto fs-4'> {store?.description}</p>
-                //             <p className='texto fs-4'> {store?.loremDescription}</p>
-
-                //         </div>
-                //     </div>
-                //     <div className='py-4 row border-top border-danger'>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span> Name: </span>
-                //             <div>{store?.planet?.name}</div>
-                //         </div>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span>Climate: </span>
-                //             <div>{store?.planet?.climate}</div>
-                //         </div>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span>Population: </span>
-                //             <div>{store?.planet?.population}</div>
-                //         </div>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span>Diameter: </span>
-                //             <div>{store?.planet?.diameter}</div>
-                //         </div>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span>Terrain: </span>
-                //             <div>{store?.planet?.terrain}</div>
-                //         </div>
-                //         <div className="col-2 fontDetail text-center text-danger ">
-                //             <span>Gravity: </span>
-                //             <div>{store?.planet?.gravity}</div>
-                //         </div>
-                //     </div>
-                // </div>)
-
-                :
+                        :
                 (
-                   <p>cargando</p> 
+                    <Cargando />
                 )
             }
 

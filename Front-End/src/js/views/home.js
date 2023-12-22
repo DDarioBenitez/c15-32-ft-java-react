@@ -15,7 +15,7 @@ export const Home = () => (
 	<div className="text-center">
 		<SlidePrincipal />
 		<Subtitulo texto={'NEW'} />
-		<SlideCards />
+		<ProductsSlider />
 		<Subtitulo texto={'COLECCIONES'} />
 		<Colecciones />
 		<Subtitulo texto={'SALE'} />

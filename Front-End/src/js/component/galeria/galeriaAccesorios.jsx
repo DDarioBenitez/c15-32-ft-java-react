@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext.js";
 import Card from "./card.jsx";
+import ProductCard from "../productsSlider/ProductCard.jsx";
 
 
 
@@ -14,7 +15,7 @@ const GaleriaAccesorios = (props) => {
                 {
                     store.jewelery.map((item, index) => {
                         return (
-                            <Card key={item.id} imagen={item.image} tituloProducto={item.title} precio={item.price} />
+                            <ProductCard key={item.id} item={item} />
                         )
                     })
                 }

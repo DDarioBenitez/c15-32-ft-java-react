@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../../../styles/productSlide.css'
 import ProductCard from './ProductCard.jsx';
+import CardProduct from '../galeria/CardProduct.jsx';
 
 {/* {
                 "id": 5,
@@ -22,20 +23,20 @@ import ProductCard from './ProductCard.jsx';
 const ProductsSlider = () => {
     const { store, actions } = useContext(Context);
 
-
+    console.log('productslider', store.products);
 
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 1280 },
+            breakpoint: { max: 3000, min: 1024 },
             items: 5
         },
         desktop: {
-            breakpoint: { max: 1280, min: 1024 },
-            items: 3
+            breakpoint: { max: 1024, min: 800 },
+            items: 4
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
+            breakpoint: { max: 800, min: 464 },
             items: 2
         },
         mobile: {
@@ -48,15 +49,17 @@ const ProductsSlider = () => {
 
 
     return (
-        <Carousel responsive={responsive}>
-            {store.products?.map((item, index) => {
-                return (
-                    //*******poner link en titulo para enviar a coleccion sale. cambiar data a un archivo nuevo llamado sale.jsx con json de repo externo
-                    <ProductCard key={index} item={item}/>
-                );
-            })
-            }
-        </Carousel>
+        <div className='container'>
+            <Carousel responsive={responsive}>
+                {store.products?.map((item, index) => {
+                    return (
+                        <ProductCard key={index} item={item} />
+                    );
+                })
+                }
+            </Carousel>
+        </div>
+
 
 
     )

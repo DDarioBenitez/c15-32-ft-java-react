@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Context } from '../../store/appContext';
 
 
-const ProductCard = ({ item }) => {
+const ProductCardGaleria = ({ item }) => {
     const { store, actions } = useContext(Context);
 
     const { id } = useParams();
@@ -16,7 +16,7 @@ const ProductCard = ({ item }) => {
     const productId = 1
 
     return (
-        <div className='card-slide'>
+        <div className='card-slide col-sm-12 col-md-4 col-lg-3'>
             {/* <img src="" alt="product-image" className="product--image" />         */}
             <Link to={"/detalleProducto" + productId} className='linkStyle' onClick={() => { actions.getProductById(item.nombre, item.id) }}>
                 <img src={item.imagen[0]} className=" product--image" alt="product image" />
@@ -46,4 +46,4 @@ const ProductCard = ({ item }) => {
     )
 }
 
-export default ProductCard
+export default ProductCardGaleria
