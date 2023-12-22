@@ -3,13 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			womansClothing: [],
 			mensClothing: [],
-			jewerly:[],
-			products: [],
-			carrito: [],
-			token: false,
-			seePassword: true
-
-		// 	{
+			jewerly:[
+						// 	{
         //         "id": 5,
         //         "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
         //         "price": 695,
@@ -20,6 +15,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         //             "rate": 4.6,
         //             "count": 400
         // }
+
+			],
+			products: [],
+			token: false,
+			seePassword: true,
+			carrito:[
+				// {nombre:'',
+				// imagen:'',
+				// etc:''}
+				],
+			product: null
+				
+				//ambiar titulo y poner logo en la ventana arriba , achicar el formulario de registro a un container//presentacion ess con link deployado y video es para formulario// crear fonod  para meet de presentacion dcon logo marca
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -65,6 +73,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				catch (error) { console.log(error) };
 			},
+
+			getOneProduct: async (url, id) => {
+				const store = getStore();
+				try {
+					const res = await fetch(url+id, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					const data = await res.json()
+					console.log({ data });
+					setStore({ OneProduct : data });
+					return true
+				}
+				catch (error) { console.log(error) };
+			},
+
+
+
+			prodCantidad :(cantidad, producto)=>{
+				const store = getStore();
+				let counter = 0
+				let aumentar = counter++
+				const item= {...item, cantidad: aumentar}
+				setStore({carrito : [...store.carrito, item]})
+				console.log(store.carrito, {aumentar});
+			},
 			addCarrito: (item) => {
 				const store = getStore();
 				const { id, nombre, precio, imagen } = item;
@@ -81,22 +117,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ carrito: [...store.carrito, { id, nombre, precio, imagen, cantidad: 1 }] });
 				}
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore()
+			getProductById: (id, nombre)=>{
+					const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+					console.log(id, nombre);
+					let foundProduct = store?.products?.find((product) => {product.nombre === nombre && product.id === id})
+					console.log({ foundProduct });
+					const data= ({...foundProduct})
+					setStore({ product: data })
+			}, 
+			getPreference: async()=>{
+				const store = getStore();
+				try {
+					const res = await fetch('http://opal.sa-east-1.elasticbeanstalk.com/api/transaccion/checkout', {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: { 'detalles': [{ cantdidad: 1, precioTotal : 1, productId : 1 }]
+						}
+					})
+					const data = await res.json()
+					console.log({ data });// recibe un id para la compra en mercadopago
+					setStore({ idMercadopago : data });//por si acaso se peude guardar  ono
+					// setStore({ paginationPeople: data, peoplesCount: data.count });
+					return true
+				}
+				catch (error) { console.log(error) };
 			}
-		}
-	};
-};
+}}}
 
 export default getState;

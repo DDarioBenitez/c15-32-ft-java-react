@@ -10,9 +10,9 @@ const ProcesoCompra = () => {
 
     return (
 
-        <div className='container-fluid'>
+        <div>
             <div className="text-center">
-                <Subtitulo texto={'CARRITO DE COMPRA'} />
+                <Subtitulo texto={'PROCESO DE COMPRA'} />
             </div>
             <table className="table border text-uppercase px-5 py-5">
                 <thead>
@@ -24,7 +24,13 @@ const ProcesoCompra = () => {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                    <CardCompra />
+                        {    store.carro.map((item, i) => {
+                                return (
+                                    <CardCompra item={item}/>
+
+                                    )
+                            })
+                        }
                     <tr>
                         <th scope="row">titulo producto</th>
                         <td>$0000</td>
@@ -90,7 +96,6 @@ const ProcesoCompra = () => {
             <div className='pago-seguro'>
                 <HiOutlineLockClosed /> <span className='py-5'>Pago seguro</span>
             </div>
-
         </div>
     )
 }

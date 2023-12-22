@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Context } from '../../store/appContext.js';
-import { CiDeliveryTruck, CiUser, CiShoppingBasket, CiTrash, CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import CardCarrito from './CardCarrito.jsx';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ import { Link } from 'react-router-dom';
 const OffCanvaCarritoRight = () => {
     const { store, actions } = useContext(Context);
     // traer producto agregado a carrito desde backend en cardCarrito
-
+    // vista detalle producto // en proceso compra que se muestren los productos del carrito y boton de pago
 
     return (
         <>

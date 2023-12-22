@@ -3,6 +3,7 @@ import { Context } from '../../store/appContext';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../../../styles/productSlide.css'
+import ProductCard from './ProductCard.jsx';
 
 {/* {
                 "id": 5,
@@ -21,8 +22,7 @@ import '../../../styles/productSlide.css'
 const ProductsSlider = () => {
     const { store, actions } = useContext(Context);
 
-
-
+    console.log(store.carrito);
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -44,36 +44,17 @@ const ProductsSlider = () => {
     };
 
 
-    
 
 
     return (
         <Carousel responsive={responsive}>
-
-
             {store.products?.map((item, index) => {
                 return (
                     //*******poner link en titulo para enviar a coleccion sale. cambiar data a un archivo nuevo llamado sale.jsx con json de repo externo
-                    // <Card imagen={item.image} tituloProducto={item.title} precio={item.price} key={index} />
-                    <div key={index} className='card-slide'>
-                        {/* <img src="" alt="product-image" className="product--image" />         */}
-                        <img src={item.imagen[0]} className=" product--image" alt="product image" />
-                        {/* <div className='title-wrap'>
-                        <h6>{item.title}</h6>
-                        </div>
-                        <hr />
-                        <h6 className='price'>{item.price}</h6>
-                        <p>descripcion articulo..</p> */}
-                        <button onClick={() => actions.addCarrito(item)}>agregar al carrito</button>
-                    </div>
-
+                    <ProductCard key={index} item={item}/>
                 );
             })
             }
-
-            {/* <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div> */}
         </Carousel>
 
 
