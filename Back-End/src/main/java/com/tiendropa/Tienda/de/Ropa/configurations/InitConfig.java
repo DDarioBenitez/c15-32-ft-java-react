@@ -1,5 +1,6 @@
 package com.tiendropa.Tienda.de.Ropa.configurations;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -151,7 +152,9 @@ public class InitConfig
         producto.setMarca("Oneill Argentina");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_686904-MLA51935097446_102022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_937767-MLA51935097448_102022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_745780-MLA51935003931_102022-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Rosado"));
+        producto.setFechaCreacion(LocalDate.now().minusMonths(2));
+        producto.setCategoria(Categoria.MEN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -162,7 +165,7 @@ public class InitConfig
         producto.setMarca("Billabong");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_918181-MLA51304792604_082022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_862953-MLA51304858215_082022-O.webp", "https://http2.mlstatic.com/D_NQ_NP_986591-MLA51304848248_082022-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Azul"));
         producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
@@ -174,7 +177,9 @@ public class InitConfig
         producto.setMarca("Lacoste");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_785712-MLA71947754186_092023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_699487-MLA71947754194_092023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_838605-MLA71947754182_092023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_633931-MLA71947754192_092023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_793659-MLA71947754188_092023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Gris"));
+        producto.setFechaCreacion(LocalDate.now().minusMonths(5));
+        producto.setCategoria(Categoria.MEN);
         productoService.save(producto);
 
         producto = new Producto();
@@ -185,7 +190,7 @@ public class InitConfig
         producto.setMarca("47 Street");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_839889-MLA72646235143_112023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_967881-MLA72646235145_112023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_816524-MLA72646235139_112023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Celeste"));
         producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
@@ -197,7 +202,7 @@ public class InitConfig
         producto.setMarca("Heyas");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_857815-MLA71007055455_082023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_824024-MLA71007055457_082023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Negro"));
         producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
@@ -209,7 +214,7 @@ public class InitConfig
         producto.setMarca("Becca Shoes");
         producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_849274-MLA72224576131_102023-O.webp", "https://http2.mlstatic.com/D_NQ_NP_681028-MLA72224585923_102023-O.webp"));
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Negro"));
         producto.setCategoria(Categoria.WOMAN);
         productoService.save(producto);
 
@@ -221,25 +226,38 @@ public class InitConfig
         producto.setPrecio(rand.nextInt(100) * 100);
         producto.setCantidad(rand.nextInt(90) + 1);
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
-        producto.setColor(Arrays.asList("Blanco"));
+        producto.setColor(Arrays.asList("Marron"));
         producto.setCategoria(Categoria.WOMAN);
+        producto.setFechaCreacion(LocalDate.now().minusMonths(1));
         productoService.save(producto);
 
-        /* 
+
         producto = new Producto();
-        producto.setNombre("NOMBRE");
-        producto.setMarca("MARCA");
-        producto.setDescripcion("DESCRIPCION");
-        producto.setImagen(Arrays.asList("IMAGEN1"));
-        producto.setPrecio(rand.nextInt(100) * 100);
+        producto.setNombre("Shorts Hombre Deportivos Gimnasio Futbol Running Pantalon");
+        producto.setMarca("La Feria Online");
+        producto.setDescripcion("Los shorts deportivos de nuestra línea son el equilibrio perfecto entre comodidad y estilo. Confeccionados con materiales de alta calidad y cuidando cada detalle en su elaboración, estos shorts aseguran un calce excepcional que se adapta a tu cuerpo. Diseñados para brindar libertad de movimiento durante cualquier actividad física, su ajuste ergonómico te ofrece la comodidad que necesitas para entrenar con confianza. Descubre la combinación ideal de funcionalidad y moda con nuestros shorts deportivos, ¡tu aliado perfecto para lucir y sentirte genial mientras te mantienes activo!");
+        producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_642629-MLA44755392097_012021-O.webp","https://http2.mlstatic.com/D_NQ_NP_605261-MLA44464125133_122020-O.webp"));
+        producto.setPrecio(4725);
+        producto.setDescuento(10);
         producto.setCantidad(rand.nextInt(90) + 1);
         producto.setTalle(Arrays.asList("L", "XL", "SM"));
         producto.setColor(Arrays.asList("Blanco"));
+        producto.setFechaCreacion(LocalDate.now().minusMonths(5));
+        producto.setCategoria(Categoria.MEN);
         productoService.save(producto);
-        */
 
-
-        //Orden
+        producto = new Producto();
+        producto.setNombre("Remera Manga Corta Billabong All Day Hombre");
+        producto.setMarca("La Feria Online");
+        producto.setDescripcion("Nuestra remera All Day Tee es un modelo institucional de la marca por ser la más elegida y que se renueva temporada tras temporada. Contiene una combinación de algodón con poliéster. Además es de la línea Essential con una variedad de talle de XS a XXXL. Seguimos confiando en este producto ya que es utilizable en cualquier momento, sino que también te genera un estilo único.");
+        producto.setImagen(Arrays.asList("https://http2.mlstatic.com/D_NQ_NP_735297-MLA54428940668_032023-O.webp","https://http2.mlstatic.com/D_NQ_NP_735886-MLA54428733868_032023-O.webp","https://http2.mlstatic.com/D_NQ_NP_781401-MLA54428887268_032023-O.webp"));
+        producto.setPrecio(17.999);
+        producto.setCantidad(rand.nextInt(90) + 1);
+        producto.setTalle(Arrays.asList("L", "XL", "XXL", "XXXL"));
+        producto.setColor(Arrays.asList("Gris"));
+        producto.setFechaCreacion(LocalDate.now().minusMonths(5));
+        producto.setCategoria(Categoria.MEN);
+        productoService.save(producto);
 
     }
 }

@@ -47,7 +47,7 @@ public class TransaccionController {
     private OrdenService ordenService;
 
 
-    @GetMapping("/checkout")
+    @PostMapping("/checkout")
     @Secured("CLIENTE")
     public ResponseEntity<?> checkout(@RequestBody NuevaOrdenDTO nuevaOrden, Authentication authentication) throws MPException, MPApiException
         {
