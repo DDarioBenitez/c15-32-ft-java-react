@@ -7,6 +7,8 @@ const SeguimientoPedido = () => {
     const { store, actions } = useContext(Context);
     console.log(store.products, 'ooooo')
 
+    //si se pone un nro de registro mostrar div con fecha estimada de entrega
+
     return (
         <>
             {/* arreglar html react por bootstrap */}

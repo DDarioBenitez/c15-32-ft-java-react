@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../store/appContext.js';
 import { CiSquareMinus, CiSquarePlus } from 'react-icons/ci'
 import { IoCloseOutline } from "react-icons/io5";
 import { HiOutlineLockClosed } from "react-icons/hi2";
@@ -7,11 +8,14 @@ import CardCompra from './cardCompra.jsx';
 
 const ProcesoCompra = () => {
     //detalles de compra desde backend
+    const { store, actions } = useContext(Context);
+
+    /// mostrar div con fecha estimada de entrega cuando la compra salga exitosa
 
     return (
 
-        <>
-            <div className="text-center">
+        <div className='proceso-compra'>
+            <div className="text-center ">
                 <Subtitulo texto={'PROCESO DE COMPRA'} />
             </div>
             <table className="table border text-uppercase px-5 py-5">
@@ -24,7 +28,7 @@ const ProcesoCompra = () => {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">
-                        {    store.carro.map((item, i) => {
+                        {    store.carro?.map((item, i) => {
                                 return (
                                     <CardCompra item={item}/>
 
@@ -97,7 +101,7 @@ const ProcesoCompra = () => {
                 <HiOutlineLockClosed /> <span className='py-5'>Pago seguro</span>
             </div>
 
-        </>
+        </div>
     )
 }
 

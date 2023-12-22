@@ -6,6 +6,7 @@ import { Context } from '../../store/appContext';
 import Carousel from 'react-multi-carousel';
 import '../../../styles/productSlide.css';
 import Card from '../galeria/card.jsx';
+import CardProduct from '../galeria/CardProduct.jsx';
 
 
 const SlideCards = () => {
@@ -37,10 +38,11 @@ const SlideCards = () => {
         // cada cara del slide seria un componente con una cantidad x de cards para web serian 4 cards ver material ui https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
 <>
 <Carousel responsive={responsive}>
-            {store.jewelery?.map((item, index) => {
+            {store.products?.map((item, index) => {
                 return (
                     //*******poner link en titulo para enviar a coleccion sale. cambiar data a un archivo nuevo llamado sale.jsx con json de repo externo
-                    <Card imagen={item.image} tituloProducto={item.title} precio={item.price} key={index} />
+                    // <Card imagen={item.image} tituloProducto={item.title} precio={item.price} key={index} />
+                    <CardProduct key ={index} item={item} />                    
                     // <div key={index} className='card-slide'>
                     //     {/* <img src="" alt="product-image" className="product--image" />         */}
                     //     {/* <img src={item.imagen[0]} className=" product--image" alt="product image" /> */}
