@@ -15,7 +15,7 @@ const GaleriaNew = (props) => {
                 <div class="container">
                     <div class="d-flex flex-row align-items-center ">
                         {
-                            store.new.map((item, index) => {
+                            store.new?.map((item, index) => {
                                 return (
                                     <div className="col-md-4 " >
 

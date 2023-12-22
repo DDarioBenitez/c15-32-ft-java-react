@@ -15,7 +15,7 @@ const GaleriaMujer = (props) => {
                 <div class="container">
                     <div class="d-flex flex-row align-items-center ">
                         {
-                            store.woman.map((item, index) => {
+                            store.woman?.map((item, index) => {
                                 return (
                                     <div className="col-md-4 " >
 

@@ -35,13 +35,13 @@ const injectContext = PassedComponent => {
 			state.actions.getMensClothing('https://fakestoreapi.com/products/category/'),
 			state.actions.getWomansClothing('https://fakestoreapi.com/products/category/')
 
-			state.actions.getAccesorios('https://c15-32-ft-java-react-production.up.railway.app/producto/jewerly')
-			state.actions.getWoman('https://c15-32-ft-java-react-production.up.railway.app/producto/woman')
-			state.actions.getMen('https://c15-32-ft-java-react-production.up.railway.app/producto/men')
-			state.actions.getSale('https://c15-32-ft-java-react-production.up.railway.app/producto/sale')
-			state.actions.getNew('https://c15-32-ft-java-react-production.up.railway.app/producto/sale')
-			//state.actions.getOneProduct('https://c15-32-ft-java-react-production.up.railway.app/producto/')//concatenar el id en la funcion traerlo cpomo props
-			state.actions.getProducts('https://c15-32-ft-java-react-production.up.railway.app/producto/all')
+			state.actions.getAccesorios('https://c15-32-ft-java-react-production.up.railway.app/api/producto/jewerly')
+			state.actions.getWoman('https://c15-32-ft-java-react-production.up.railway.app/api/producto/woman')
+			state.actions.getMen('https://c15-32-ft-java-react-production.up.railway.app/api/producto/men')
+			state.actions.getSale('https://c15-32-ft-java-react-production.up.railway.app/api/producto/sale')
+			state.actions.getNew('https://c15-32-ft-java-react-production.up.railway.app/api/producto/sale')
+			//state.actions.getOneProduct('https://c15-32-ft-java-react-production.up.railway.app/api/producto/')//concatenar el id en la funcion traerlo cpomo props
+			state.actions.getProducts('https://c15-32-ft-java-react-production.up.railway.app/api/producto/all')
 
 			// https://c15-32-ft-java-react-production.up.railway.app
 

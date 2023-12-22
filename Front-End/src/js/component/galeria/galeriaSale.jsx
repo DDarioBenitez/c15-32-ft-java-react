@@ -15,7 +15,7 @@ const GaleriaSale = () => {
                 <div class="container">
                     <div class="d-flex flex-row align-items-center ">
                         {
-                            store.sale.map((item, index) => {
+                            store.sale?.map((item, index) => {
                                 return (
                                     <div className="col-md-4 " >
 

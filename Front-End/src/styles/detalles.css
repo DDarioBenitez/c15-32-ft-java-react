@@ -1,0 +1,23 @@
+img{
+   
+    padding-top: 6rem;
+     max-width: 35px;
+     padding-bottom: 2rem;
+ }
+ .title{
+     border-bottom: black 1px solid;
+     padding-bottom: 1rem;
+ }
+ 
+ .imgPro{
+     max-width: 35px;
+ }
+ .cuerpo{
+    
+     border-bottom: black 1px solid;
+ }
+ .cardPie{
+    border: black 1px solid;
+ }
+ 
+ 

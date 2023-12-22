@@ -311,12 +311,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 				console.log(store.carrito);
 			},
-			getProductById: (id, nombre)=>{
+			getProductById: (id)=>{
 					const store = getStore();
 
 					console.log(id, nombre);
-					let foundProductFakeApi = store?.FakeApi?.find((item, i) => {item[i].title === nombre && item[i].id === id })
-					let foundProductOpalApi = store?.opalApi?.find((item, i) => {item[i].nombre === nombre && product.id === id })
+					let foundProductFakeApi = store?.FakeApi?.find((item, i) => { item[i].id === id })
+					let foundProductOpalApi = store?.opalApi?.find((item, i) => { item[i].id === id })
 					
 					console.log({ foundProduct });
 					const data= foundProductFakeApi? ({...foundProductFakeApi}) : ({...foundProductOpalApi}) 

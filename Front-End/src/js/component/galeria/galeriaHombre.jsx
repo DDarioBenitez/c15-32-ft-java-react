@@ -13,7 +13,7 @@ const GaleriaHombre = (props) => {
                 <div class="container">
                     <div class="d-flex flex-row align-items-center ">
                         {
-                            store.men.map((item, index) => {
+                            store.men?.map((item, index) => {
                                 return (
 
                                     <ProductCardGaleria key={item.id} item={item} />

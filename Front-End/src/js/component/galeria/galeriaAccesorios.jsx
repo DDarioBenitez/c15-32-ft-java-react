@@ -13,7 +13,7 @@ const GaleriaAccesorios = (props) => {
         <>
             <div className='d-flex justify-content-center align-items-center '>
                 {
-                    store.jewelery.map((item, index) => {
+                    store.accesorios?.map((item, index) => {
                         return (
                             <ProductCard key={item.id} item={item} />
                         )

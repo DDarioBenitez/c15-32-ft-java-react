@@ -36,7 +36,7 @@ const Layout = () => {
 						<Route path="/seguimientoPedido" element={<SeguimientoPedido />} />
 						<Route path=":coleccion" element={<ColeccionDinamica />} />
 						<Route path="/perfil/:id" element={<Perfil />} />
-						<Route path="/DetalleProducto/:nombre/:id" element={<DetalleProducto />} />
+						<Route path="/DetalleProducto/:id" element={<DetalleProducto />} />
 
 						
 						<Route exact path="/registro" element={<Registro />}/>
