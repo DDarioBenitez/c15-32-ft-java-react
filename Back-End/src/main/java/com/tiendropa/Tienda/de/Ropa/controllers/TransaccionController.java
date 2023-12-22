@@ -22,10 +22,12 @@ import com.tiendropa.Tienda.de.Ropa.utils.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,23 +49,18 @@ public class TransaccionController {
     private OrdenService ordenService;
 
 
-    @GetMapping("/checkout")
+    @PostMapping("/checkout")
     @Secured("CLIENTE")
-    public ResponseEntity<?> checkout(@RequestBody NuevaOrdenDTO nuevaOrden, Authentication authentication) throws MPException, MPApiException
+    public ResponseEntity<Object> checkout(@RequestBody NuevaOrdenDTO nuevaOrden, Authentication aut) throws MPException, MPApiException
         {
-//            Random rand = new Random();
-//
-//            // Productos de prueba
-//            List<Producto> productos = new ArrayList<>();
-//            for(int i = 0; i < rand.nextInt(5) + 1; i++)
-//            {
-//                Producto producto = new Producto();
-//                producto.setNombre("Producto de prueba N#" + i + 1);
-//                producto.setPrecio(rand.nextDouble() * 100.0);
-//                producto.getTalle().add("XL");
-//                producto.setMarca("Anybranch");
-//                productos.add(producto);
-//            }
+            if (nuevaOrden.getDetalles().isEmpty()) {
+                return new ResponseEntity<>("No se encontraron productos", HttpStatus.BAD_REQUEST);
+            }
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return new ResponseEntity<>("Usuario no autenticado", HttpStatus.BAD_REQUEST);
+            }
             List<Long> productoIds = nuevaOrden.getDetalles().stream().map(NuevaOrdenDetalleDTO::getProductoId).toList();
             List<Producto> productos = productoService.findAllById(productoIds);
             // Crear pago
@@ -136,8 +133,9 @@ public class TransaccionController {
             PreferenceClient client = new PreferenceClient();
             Preference preference = client.create(preferenceRequest);
 
+            System.out.println(preference.getId().toString());
 
-            return ResponseEntity.ok(preference.getId()); // Devolver el "preference_id" creado
+            return ResponseEntity.ok(preference.getSandboxInitPoint()); // Devolver el "preference_id" creado
         }
 
     @PostMapping("/mercadopago/webhook")
