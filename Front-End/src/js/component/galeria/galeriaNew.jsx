@@ -4,11 +4,9 @@ import Card from "./card.jsx";
 
 
 
-const GaleriaColeccion = () => {
+const GaleriaNew = (props) => {
     const { store, actions } = useContext(Context);
-    // console.log(store.jewerly, 'nnn');
-
-
+//    console.log(store.props);
 
     return (
         <>
@@ -40,4 +38,4 @@ const GaleriaColeccion = () => {
     )
 }
 
-export default GaleriaColeccion
+export default GaleriaNew

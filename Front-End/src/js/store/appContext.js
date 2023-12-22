@@ -31,14 +31,17 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
-			state.actions.getJewerly('https://fakestoreapi.com/products/category/jewelery/')
-			// state.actions.getJoyas('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/jewerly')
-			// state.actions.getWoman('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/woman')
-			// state.actions.getMen('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/men')
-			// state.actions.getSale('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/sale')
-			// state.actions.getNew('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/sale')
-			// state.actions.getOneProduct('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/')//concatenar el id en la funcion traerlo cpomo props
-			// state.actions.getProducts('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/all')
+			state.actions.getJewelery('https://fakestoreapi.com/products/category/jewelery/'),
+			state.actions.getMensClothing('https://fakestoreapi.com/products/category/'),
+			state.actions.getWomansClothing('https://fakestoreapi.com/products/category/')
+
+			state.actions.getAccesorios('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/jewerly')
+			state.actions.getWoman('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/woman')
+			state.actions.getMen('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/men')
+			state.actions.getSale('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/sale')
+			state.actions.getNew('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/sale')
+			//state.actions.getOneProduct('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/')//concatenar el id en la funcion traerlo cpomo props
+			state.actions.getProducts('http://opal.sa-east-1.elasticbeanstalk.com/api/producto/all')
 
 			
 

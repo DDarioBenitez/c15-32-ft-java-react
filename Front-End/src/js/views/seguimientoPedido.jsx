@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { LuPackageSearch } from "react-icons/lu";
+import { Context } from '../store/appContext';
 
 
 const SeguimientoPedido = () => {
+    const { store, actions } = useContext(Context);
+    console.log(store.products, 'ooooo')
+
     return (
         <>
             {/* arreglar html react por bootstrap */}
@@ -13,7 +17,7 @@ const SeguimientoPedido = () => {
                 <span>SEGUIR MI PEDIDO</span>
                 <form className="col my-3">
                     <div className="">
-                        <label className="visually-hidden" for="autoSizingInput">CODIGO DE SEGUIMIENTO</label>
+                        <label className="visually-hidden" htmlFor="autoSizingInput">CODIGO DE SEGUIMIENTO</label>
                         <input type="text" className="form-control" id="autoSizingInput" placeholder="Ej: 001273645" />
                     </div>
                    <div className="d-grid">
