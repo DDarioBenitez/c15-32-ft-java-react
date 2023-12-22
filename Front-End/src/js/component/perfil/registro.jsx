@@ -36,7 +36,7 @@ export default function Registro() {
         <main className="  py-5">
             <hr />
 
-            <div className="m-auto p-4  "
+            <div className="m-auto p-3 container shadow"
             // shadow style={{minWidth: "40rem"}}
             >
                 <div className="mb-4 text-center">

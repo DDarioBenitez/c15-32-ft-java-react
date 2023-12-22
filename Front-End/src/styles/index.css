@@ -169,7 +169,7 @@ height: 450px;
     place-items: center;
 }
 .seguimientoPedidoIcono{
-    font-size: 8.5rem;
+    font-size: 13rem;
     color: burlywood;
 }
 .boton-pag{
@@ -231,7 +231,9 @@ input{
 }
 .card img{
     border-radius: 0 !important;
+    object-fit: contain;
 }
+
 .footer{
     background: rgb(24, 23, 23);
     color: darkgrey;

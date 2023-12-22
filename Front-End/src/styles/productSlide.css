@@ -19,7 +19,7 @@
     width: 100%;
     min-height: 25em;
     max-height: 25em;
-    object-fit: cover;
+    object-fit: contain;
   }
   .title-wrap{
     min-height: 3.5em;
@@ -43,8 +43,6 @@
     border: none;
     outline: 0;
     padding: 12px;
-    color: white;
-    background-color: #000;
     text-align: center;
     cursor: pointer;
     width: 100%;

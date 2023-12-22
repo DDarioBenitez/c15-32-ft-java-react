@@ -131,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getMensClothing: async (url) => {
 				const store = getStore();
 				try {
-					const res = await fetch(url, {
+					const res = await fetch(url+"men's clothing", {
 						method: 'GET',
 						headers: {
 							'Content-Type': 'application/json'
@@ -148,7 +148,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getWomansClothing: async (url) => {
 				const store = getStore();
 				try {
-					const res = await fetch(url, {
+					const res = await fetch(url+ "women's clothing", {
 						method: 'GET',
 						headers: {
 							'Content-Type': 'application/json'
@@ -248,23 +248,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				catch (error) { console.log(error) };
 			},
-			getProducts: async (url) => {
-				const store = getStore();
-				try {
-					const res = await fetch(url, {
-						method: 'GET',
-						headers: {
-							'Content-Type': 'application/json'
-						}
-					})
-					const data = await res.json()
-					console.log({ data });
-					setStore({ products : data, opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
-					return true
-				}
-				catch (error) { console.log(error) };
-			},
+			// getProducts: async (url) => {
+			// 	const store = getStore();
+			// 	try {
+			// 		const res = await fetch(url, {
+			// 			method: 'GET',
+			// 			headers: {
+			// 				'Content-Type': 'application/json'
+			// 			}
+			// 		})
+			// 		const data = await res.json()
+			// 		console.log({ data });
+			// 		setStore({ products : data, opalApi: [...store.opalApi, data] });
+			// 		console.log(store.opalApi);
+			// 		return true
+			// 	}
+			// 	catch (error) { console.log(error) };
+			// },
 			getOneProduct: async (url, id) => {
 				const store = getStore();
 				try {
