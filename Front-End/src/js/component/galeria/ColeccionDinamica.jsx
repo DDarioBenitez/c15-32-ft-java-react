@@ -19,17 +19,15 @@ const ColeccionDinamica = () => {
       <div className='d-flex justify-content-center pt-5 text-uppercase coleccionDinamica'>
         <Subtitulo texto={coleccion} />
       </div>
-
       <div className='d-flex justify-content-center align-items-center flex-column'>
         {
-          coleccion === 'men' ? <GaleriaHombre /> :
-            coleccion === 'woman' ? <GaleriaMujer /> :
-              coleccion === 'accesorios' ? <GaleriaAccesorios /> :
-                coleccion === 'sale' ? <GaleriaSale /> :
-                  <GaleriaNew />
+          coleccion === 'men' ? <GaleriaHombre nombre={'men'} /> :
+            coleccion === 'woman' ? <GaleriaMujer nombre={'woman'} /> :
+              coleccion === 'accesorios' ? <GaleriaAccesorios nombre={'accesorios'} /> :
+                coleccion === 'sale' ? <GaleriaSale nombre={'sale'} /> :
+                  <GaleriaNew nombre={'new'} />
         }
       </div>
-      {/* filtrar por categoria tipo valor etc revisar si se incluye */}
     </div>
   )
 }
