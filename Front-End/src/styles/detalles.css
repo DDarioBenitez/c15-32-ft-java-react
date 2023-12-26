@@ -1,9 +1,4 @@
-img{
-   
-    padding-top: 6rem;
-     max-width: 35px;
-     padding-bottom: 2rem;
- }
+
  .title{
      border-bottom: black 1px solid;
      padding-bottom: 1rem;
@@ -15,6 +10,11 @@ img{
  .cuerpo{
     
      border-bottom: black 1px solid;
+ }
+ .cuerpo img{
+    padding-top: 6rem;
+     max-width: 35px;
+     padding-bottom: 2rem;
  }
  .cardPie{
     border: black 1px solid;

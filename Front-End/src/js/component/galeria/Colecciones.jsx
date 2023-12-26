@@ -5,7 +5,6 @@ const Colecciones = () => {
   return (
     <>
       <div className='colecciones d-flex px-1'>
-
         <Link to="/mujer" className="linkStyle colection col ">
           <div className="">
             <span>COLECCION MUJER</span>

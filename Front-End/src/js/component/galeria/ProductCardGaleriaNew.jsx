@@ -9,16 +9,15 @@ const ProductCardGaleria = ({ item }) => {
     const { store, actions } = useContext(Context);
 
     const { id } = useParams();
-
+    
     const productId = 1
     const counter = 1
 
-    
     return (
         <div className='card-slide-galeria col-sm-12 col-md-4 col-lg-3 m-3'>
             {/* <img src="" alt="product-image" className="product--image" />         */}
             <Link to={"/detalleProducto" + item.id + item.nombre} className='linkStyle' onClick={() => { actions.getProductById(item.nombre, item.id) }}>
-                <img src={item.imagen[0]} className=" product-image-galeria" alt="product image" />
+                <img src={item.imagen} className=" product-image-galeria" alt="product image" />
             </Link >
             <div className='title-wrap my-2'>
                 <h6>{item.nombre}</h6>
@@ -41,14 +40,3 @@ const ProductCardGaleria = ({ item }) => {
 }
 
 export default ProductCardGaleria
-
-{/* < div className='d-flex justify-content-center'>
-<CiSquareMinus className='carrito-icono' onClick={() => { actions.addCarrito() }} />
-<span className='mx-2'>1</span>
-<CiSquarePlus className='carrito-icono' onClick={() => { actions.addCarrito() }} />
-</div>
-<h6 className="card-text fw-light">
-{/* $ {item.precio * cantidad} */}
-// </h6> */}
-{/* actions.modificarCantidad() */ }
-{/*dejar comentario eliminar modificar agregar*/ }

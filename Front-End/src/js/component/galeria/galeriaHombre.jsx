@@ -12,14 +12,16 @@ const GaleriaHombre = (props) => {
 
     return (
         <>
-            <div className='d-flex justify-content-center align-items-center '>
-                {
-                    store.men?.map((item, index) => {
-                        return (
-                            <ProductCardGaleria key={item.id} item={item} />
-                        )
-                    })
-                }
+            <div className='d-flex justify-content-center align-items-center container galeria'>
+                <div className="row centrar-grid">
+                    {
+                        store.men?.map((item, index) => {
+                            return (
+                                <ProductCardGaleria key={item.id} item={item} />
+                            )
+                        })
+                    }
+                </div>
             </div>
         </>
     )

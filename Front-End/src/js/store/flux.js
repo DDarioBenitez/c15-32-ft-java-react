@@ -6,99 +6,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 			men:[],
 			woman:[],
 			accesorios:[],
-			sale: [
+			sale:[],
+			newIn:[
+				{
+					id: 12,
+					nombre: "Shorts Hombre Deportivos Gimnasio Futbol Running Pantalon",
+					precio: 4000.0,
+					imagen: [
+						"https://http2.mlstatic.com/D_NQ_NP_642629-MLA44755392097_012021-O.webp",
+						"https://http2.mlstatic.com/D_NQ_NP_605261-MLA44464125133_122020-O.webp"
+					],
+					precioAnterior: 100,
+					cantidad: 1,
+
+				},
 				{
 					id: 1,
-					img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-					nameProduct: 'Zapatos Nike',
-					price: 80,
-					quantity: 1,
+					imagen: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+					nombre: 'Zapatos Nike',
+					precio: 80000,
+					precioAnterior: 100,
+					cantidad: 1,
 				},
 				{
 					id: 2,
-					img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80',
-					nameProduct: 'Reloj',
-					price: 50,
-					quantity: 1,
+					imagen: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80',
+					nombre: 'Reloj',
+					precio: 50900,
+					precioAnterior: 80,
+					cantidad: 1,
 				},
 				{
 					id: 3,
-					img: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-					nameProduct: 'Smartwatch',
-					price: 90,
-					quantity: 1,
+					imagen: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+					nombre: 'Smartwatch',
+					precio: 90000,
+					precioAnterior: 130,
+					cantidad: 1,
 				},
 				{
 					id: 4,
-					img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-					nameProduct: 'Perfume',
-					price: 50,
-					quantity: 1,
+					imagen: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+					nombre: 'Perfume',
+					precio: 105990,
+					precioAnterior: 200000,
+					cantidad: 1,
 				},
 				{
 					id: 5,
-					img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-					nameProduct: 'Audifonos',
-					price: 20,
-					quantity: 1,
-				},
-				// Aquí pueden agregar más o modificar los productos existentes
-			],
-			newColeccion:[
-				{
-					id: 1,
-					img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-					nameProduct: 'Zapatos Nike',
-					price: 80,
-					quantity: 1,
-				},
-				{
-					id: 2,
-					img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80',
-					nameProduct: 'Reloj',
-					price: 50,
-					quantity: 1,
-				},
-				{
-					id: 3,
-					img: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
-					nameProduct: 'Smartwatch',
-					price: 90,
-					quantity: 1,
-				},
-				{
-					id: 4,
-					img: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-					nameProduct: 'Perfume',
-					price: 50,
-					quantity: 1,
-				},
-				{
-					id: 5,
-					img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-					nameProduct: 'Audifonos',
-					price: 20,
-					quantity: 1,
+					imagen: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+					nombre: 'Audifonos',
+					precio: 25000,
+					precioAnterior: 40,
+					cantidad: 1,
 				},
 				// Aquí pueden agregar más o modificar los productos existentes
 			],
 			products:[],
 			womansClothing: [],
 			mensClothing: [],
-			jewelery:[
-		// 					{
-        //         "id": 5,
-        //         "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
-        //         "price": 695,
-		//  		"old-price": 695,
-        //         "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-        //         "category": "jewelery",
-        //         "image": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-        //         "rating": {
-        //             "rate": 4.6,
-        //             "count": 400
-        // }
-				],
+			jewelery:[],
 			carrito:[
 				// {nombre:'',
 				// imagen:'',
@@ -120,9 +87,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ jewelery : data, fakeApi:[...store.fakeApi, data] });
-					console.log(store.fakeApi);
+					// console.log(store.fakeApi);
 					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
 				}
@@ -138,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ mensClothing : data, fakeApi:[...store.fakeApi, data] });
 					console.log(store.store.fakeApi);
 					return true
@@ -155,9 +122,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ womansClothing : data, fakeApi:[...store.fakeApi, data] });
-					console.log(store.fakeApi);
+					// console.log(store.fakeApi);
 					// setStore({ paginationPeople: data, peoplesCount: data.count });
 					return true
 				}
@@ -173,9 +140,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ sale : data , opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -190,9 +157,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ new : data , opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -207,9 +174,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ men : data , opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -224,9 +191,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ woman : data , opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -241,9 +208,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ accesorios : data, opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -258,9 +225,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ products : data, opalApi: [...store.opalApi, data] });
-					console.log(store.opalApi);
+					// console.log(store.opalApi);
 					return true
 				}
 				catch (error) { console.log(error) };
@@ -275,7 +242,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					const data = await res.json()
-					console.log({ data });
+					// console.log({ data });
 					setStore({ OneProduct : data });
 					return true
 				}
@@ -311,12 +278,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 				console.log(store.carrito);
 			},
-			getProductById: (id)=>{
+			getProductById: (id, nombre)=>{
 					const store = getStore();
+					const busca= store?.opalApi?.find(item => item.id === id && item.nombre === nombre )
+					console.log(busca);
 
-					console.log(id, nombre);
-					let foundProductFakeApi = store?.FakeApi?.find((item, i) => { item[i].id === id })
-					let foundProductOpalApi = store?.opalApi?.find((item, i) => { item[i].id === id })
+					console.log({busca})
+					// let foundProductFakeApi = store?.FakeApi?.find((item, i) => {item[i].title === nombre && item[i].id === id })
+					let foundProductOpalApi = store?.opalApi?.find((item, i) => {item[i].nombre === nombre && item[i].id === id })
 					
 					console.log({ foundProduct });
 					const data= foundProductFakeApi? ({...foundProductFakeApi}) : ({...foundProductOpalApi}) 

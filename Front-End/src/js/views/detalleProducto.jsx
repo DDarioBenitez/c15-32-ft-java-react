@@ -9,7 +9,7 @@ import '../../styles/detalles.css';
 
 const DetalleProducto = (props) => {
     const { store, actions } = useContext(Context);
-    const { id } = useParams();
+    const { id, nombre } = useParams();
 
     useEffect(() => {
         actions.getProductById(id)

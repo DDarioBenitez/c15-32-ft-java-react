@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext.js";
-import Card from "./card.jsx";
-import ProductCard from "../productsSlider/ProductCard.jsx";
-import ProductCardGaleria from "./ProductCardGaleria.jsx";
+import ProductCardGaleriaNew from "./ProductCardGaleriaNew.jsx";
 
 
 
@@ -12,14 +10,16 @@ const GaleriaNew = (props) => {
 
     return (
         <>
-            <div className='d-flex justify-content-center align-items-center '>
-                {
-                    store.new?.map((item, index) => {
-                        return (
-                            <ProductCardGaleria key={item.id} item={item} />
-                        )
-                    })
-                }
+            <div className='d-flex justify-content-center align-items-center container galeria'>
+                <div className="row centrar-grid">
+                    {
+                        store.newIn?.map((item, index) => {
+                            return (
+                                <ProductCardGaleriaNew key={item.id} item={item} />
+                            )
+                        })
+                    }
+                </div>
             </div>
         </>
     )

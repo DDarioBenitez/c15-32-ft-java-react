@@ -6,27 +6,23 @@ import ProductCardGaleria from "./ProductCardGaleria.jsx";
 
 
 
-const GaleriaAccesorios = ({nombre}) => {
+const GaleriaAccesorios = ({ nombre }) => {
     const { store, actions } = useContext(Context);
 
-    // const nombreColeccion=  nombre === 'men' ? <GaleriaHombre /> :
-    //       nombre === 'woman' ? <GaleriaMujer /> :
-    //         nombre === 'accesorios' ? <GaleriaAccesorios /> :
-    //           nombre === 'sale' ? <GaleriaSale /> :
-    //             <GaleriaNew />
-//   console.log(nombre);
 
 
     return (
         <>
-            <div className='d-flex justify-content-center align-items-center '>
-                {
-                    store.accesorios?.map((item, index) => {
-                        return (
-                            <ProductCardGaleria key={item.id} item={item} />
-                        )
-                    })
-                }
+            <div className='d-flex justify-content-center align-items-center container galeria'>
+                <div className="row centrar-grid">
+                    {
+                        store.accesorios?.map((item, index) => {
+                            return (
+                                <ProductCardGaleria key={item.id} item={item} />
+                            )
+                        })
+                    }
+                </div>
             </div>
         </>
     )

@@ -12,17 +12,17 @@ import GaleriaSale from './galeriaSale.jsx';
 const ColeccionDinamica = () => {
   const { coleccion } = useParams();
 
-  console.log(coleccion, 'COLECCION');
+  // console.log(coleccion, 'COLECCION');
 
   return (
     <div>
-      <div className='d-flex justify-content-center pt-5 text-uppercase coleccionDinamica'>
+      <div className='d-flex justify-content-center container text-uppercase '>
         <Subtitulo texto={coleccion} />
       </div>
-      <div className='d-flex justify-content-center align-items-center flex-column'>
+      <div className='d-flex justify-content-center align-items-center '>
         {
-          coleccion === 'men' ? <GaleriaHombre nombre={'men'} /> :
-            coleccion === 'woman' ? <GaleriaMujer nombre={'woman'} /> :
+          coleccion === 'hombre' ? <GaleriaHombre nombre={'men'} /> :
+            coleccion === 'mujer' ? <GaleriaMujer nombre={'woman'} /> :
               coleccion === 'accesorios' ? <GaleriaAccesorios nombre={'accesorios'} /> :
                 coleccion === 'sale' ? <GaleriaSale nombre={'sale'} /> :
                   <GaleriaNew nombre={'new'} />

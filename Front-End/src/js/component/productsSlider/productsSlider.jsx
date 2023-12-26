@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import '../../../styles/productSlide.css'
 import ProductCard from './ProductCard.jsx';
 import CardProduct from '../galeria/CardProduct.jsx';
+import Card from '../galeria/card.jsx';
 
 {/* {
                 "id": 5,
@@ -53,7 +54,7 @@ const ProductsSlider = () => {
             <Carousel responsive={responsive}>
                 {store.products?.map((item, index) => {
                     return (
-                        <ProductCard key={index} item={item} />
+                        <Card key={index} item={item} />
                     );
                 })
                 }
