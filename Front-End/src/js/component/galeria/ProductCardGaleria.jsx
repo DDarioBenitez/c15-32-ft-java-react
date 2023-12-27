@@ -17,7 +17,7 @@ const ProductCardGaleria = ({ item }) => {
     return (
         <div className='card-slide-galeria col-sm-12 col-md-4 col-lg-3 m-3'>
             {/* <img src="" alt="product-image" className="product--image" />         */}
-            <Link to={"/detalleProducto" + item.id + item.nombre} className='linkStyle' onClick={() => { actions.getProductById(item.nombre, item.id) }}>
+            <Link to={"/detalleProducto/" + item.id } className='linkStyle' onClick={()=> actions.getOneProduct(item.id)}>
                 <img src={item.imagen[0]} className=" product-image-galeria" alt="product image" />
             </Link >
             <div className='title-wrap my-2'>

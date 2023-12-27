@@ -72,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				// etc:''}
 				],
 			token: false, //poner token de OpalApi
-			product: null,
+			OneProduct: {},
 				//ambiar titulo y poner logo en la ventana arriba , achicar el formulario de registro a un container//presentacion ess con link deployado y video es para formulario// crear fonod  para meet de presentacion dcon logo marca
 		},
 		actions: {
@@ -232,17 +232,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				catch (error) { console.log(error) };
 			},
-			getOneProduct: async (url, id) => {
+			getOneProduct: async ( id) => {
 				const store = getStore();
 				try {
-					const res = await fetch(url+id, {
+					const res = await fetch('https://c15-32-ft-java-react-production.up.railway.app/api/producto' + '/' + id, {
 						method: 'GET',
 						headers: {
 							'Content-Type': 'application/json'
 						}
 					})
 					const data = await res.json()
-					// console.log({ data });
+					console.log({ data });
 					setStore({ OneProduct : data });
 					return true
 				}
@@ -278,18 +278,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 				console.log(store.carrito);
 			},
-			getProductById: (id, nombre)=>{
+			getProductById: (id, arr)=>{
 					const store = getStore();
-					const busca= store?.opalApi?.find(item => item.id === id && item.nombre === nombre )
-					console.log(busca);
-
-					console.log({busca})
-					// let foundProductFakeApi = store?.FakeApi?.find((item, i) => {item[i].title === nombre && item[i].id === id })
-					let foundProductOpalApi = store?.opalApi?.find((item, i) => {item[i].nombre === nombre && item[i].id === id })
+					const busca= store?.opalApi?.find(item => item.id === id  )//buscarlo en su coleccion ej 
 					
-					console.log({ foundProduct });
-					const data= foundProductFakeApi? ({...foundProductFakeApi}) : ({...foundProductOpalApi}) 
-					setStore({ product: data })
+					console.log(arr, id, arr[id]);
+
+					// console.log({busca})
+					// // let foundProductFakeApi = store?.FakeApi?.find((item, i) => {item[i].title === nombre && item[i].id === id })
+					// let foundProductOpalApi = store?.opalApi?.find((item, i) => {item[i].nombre === nombre && item[i].id === id })
+					
+					// console.log({ foundProduct });
+					// const data= foundProductFakeApi? ({...foundProductFakeApi}) : ({...foundProductOpalApi}) 
+					// setStore({ product: data })
 			// busca el producto y lo setea para mostrar sus detalles.
 			}, //detalles del producto vista
 			getPreference: async()=>{

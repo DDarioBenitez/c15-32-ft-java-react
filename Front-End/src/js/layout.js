@@ -46,7 +46,7 @@ const Layout = () => {
 						
 						<Route path="*" element={<NotFound/>} />
 					</Routes>
-					<OpalRrss />
+					{/* <OpalRrss /> */}
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>

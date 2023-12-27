@@ -9,7 +9,7 @@ import '../../../styles/index.css'
 const Card = ({ imagen, tituloProducto, precio, cantidad, item }) => {
     const { store, actions } = useContext(Context);
     const { id } = useParams();
-console.log(item.cantidad);
+// console.log(item.cantidad);
     let counter = 1
 
     return (

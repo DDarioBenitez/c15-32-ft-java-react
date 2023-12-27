@@ -4,7 +4,7 @@ import { RiGithubFill } from "react-icons/ri";
 
 const OpalRrss = () => {
     return (
-        <div className='d-flex flex-column  justify-content-center align-items-center text-light pb-2 rrss-Opal'>
+        <div className='d-flex justify-content-center align-items-center text-light pb-2 rrss-Opal'>
 {/* https://web.facebook.com/    */}
             <div className=' text-uppercase fs-6  my-2'>
                 <span className='mx-2 fw-normal'>síguenos en </span>

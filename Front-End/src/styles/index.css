@@ -23,7 +23,9 @@
 }
 .body {
   text-transform: uppercase !important;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100%;
+  position: relative;
 }
 .linkStyle,
 .linkStyle-slidePrincipal {
@@ -283,6 +285,8 @@ input {
 .footer {
   background: rgb(24, 23, 23);
   color: darkgrey;
+  /* bottom: 0; */
+  width: 100%;
 }
 .rrss-Opal {
   background: burlywood;
@@ -393,7 +397,7 @@ input {
     min-height: 100vh;
 } */
 .proceso-compra {
-  height: 70vh;
+  height: 100vh;
 }
 .centrar-grid{
     place-content: center;
@@ -405,3 +409,27 @@ input {
     justify-content: center;
     align-items: end;
   }
+.detalle-producto-img img{
+  height: 30rem;
+  place-content:center;
+}
+a:link, a:visited, a:active {  
+  text-decoration: none !important;
+
+}.p-link{  
+  color: darkgrey;
+}
+.p-link:hover{
+
+    color: rgb(250, 249, 248);
+    transition: all 1s;
+}
+.detalle-producto-info{
+  padding: 4rem;
+  display: grid;
+}
+.talle-select{
+  height: fit-content;
+  width: fit-content;
+}
+.detalle-btn{height: fit-content;}
